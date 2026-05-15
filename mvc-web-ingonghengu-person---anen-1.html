@@ -1,0 +1,2306 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Java MVC Web开发入门：实用指南">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/zh-java-web-mvc-mai-2006/mvc-web-ingonghengu-person---anen-1.html">
+      
+      
+        <link rel="prev" href="mvcoing-hiu-onghiiaia.html">
+      
+      
+        <link rel="next" href="mvc-web-ingonghengu-person---anen-2.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>5. MVC Web 应用程序 [person] – 版本 1 - Java MVC Web开发入门：实用指南</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Java MVC Web开发入门：实用指南";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#5-mvc-web-person-1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Java MVC Web开发入门：实用指南" class="md-header__button md-logo" aria-label="Java MVC Web开发入门：实用指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Java MVC Web开发入门：实用指南
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5. MVC Web 应用程序 [person] – 版本 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/zh-java-web-mvc-mai-2006" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Java MVC Web开发入门：实用指南" class="md-nav__button md-logo" aria-label="Java MVC Web开发入门：实用指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Java MVC Web开发入门：实用指南
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/zh-java-web-mvc-mai-2006" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欢迎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ianie.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="enenhonghiongeongu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 本文中使用的工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-web-aiaihu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Java Web 开发基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvcoing-hiu-onghiiaia.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. MVC（模型–视图–控制器）开发
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. MVC Web 应用程序 [person] – 版本 1
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="mvc-web-ingonghengu-person---anen-1.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. MVC Web 应用程序 [person] – 版本 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1. 应用程序视图
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2. 应用程序架构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-eclipse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3. Eclipse 项目
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54-person1-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4. [person1] Web 应用程序的配置
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5. 视图代码
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.5. 视图代码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#551" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.1. [表单]视图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#552-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.2. [response]视图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#553-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.3. [errors]视图
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6. 视图测试
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#57-servletpersonne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7. [ServletPersonne] 控制器
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.7. [ServletPersonne] 控制器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#571" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7.1. 控制器框架
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#572" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7.2. 控制器初始化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#573-doget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7.3. [doGet] 方法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#574-doinit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7.4. [doInit] 方法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#575-dovalidationform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7.5. [doValidationForm] 方法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.8. 测试
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvc-web-ingonghengu-person---anen-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. MVC Web 应用程序 [person] – 版本 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvc-web-ingonghengu-person---anen-3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. MVC Web 应用程序 [person] – 版本 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="jstl-iaoianu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. JSTL 标签库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvc-web-ingonghengu-person---i-4-an.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. MVC Web 应用程序 [person] – 第 4 版
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvc-web-ingonghengu-person---anen-5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. MVC Web 应用程序 [person] – 版本 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvc-web-ingonghengu-person---anen-6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. MVC Web 应用程序 [person] – 版本 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvc-web-ingonghengu-person---anen-7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. MVC Web 应用程序 [person] – 版本 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvc-web-ingonghengu-person---i-8-an.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. MVC Web 应用程序 [person] – 第 8 版
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anengiaouhonge-mvc-web-ingonghengu---hii-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 三层架构中的 MVC Web 应用程序 – 示例 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="spring-ioc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Spring IoC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anengiaouhonge-mvc-web-ingonghengu----hii-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. 三层架构中的 MVC Web 应用程序——示例 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anengiaouhonge-mvc-web-ingonghengu---hii-3---firebird-huuuuaniiong.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. 三层架构中的 MVC Web 应用程序 – 示例 3 – Firebird 数据库管理系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anengiaouhonge-mvc-web-ingonghengu----hii-4postgres.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. 三层架构中的 MVC Web 应用程序——示例 4，Postgres
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anengiaouhonge-mvc-web-ingonghengu---hii-5mysql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. 三层架构中的 MVC Web 应用程序 – 示例 5，MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anengiaouhonge-mvc-web-ingonghengu---hii-6sql-server-express.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. 三层架构中的 MVC Web 应用程序 – 示例 6，SQL Server Express
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ieun.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. 结论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="enenhongeaia.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. 本文中的代码
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="5-mvc-web-person-1">5. <span style="color: #365f91">MVC Web 应用程序 [person] – 版本 1</span></h1>
+<p><a id="personne1-fonctionnement"></a></p>
+<h2 id="51">5.1. <span style="color: #4f81bd">应用程序视图</span></h2>
+<p>该应用程序使用了前几个示例中的表单。应用程序的首页如下所示：</p>
+<p><img src="images/10000000000001EF000001054C146AFF.png" width="344" height="182" style="width:9.11cm;height:4.803cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001EF000001054C146AFF.png" /></p>
+<p>我们将此视图称为 [form] 视图。如果输入内容正确，它们将显示在一个名为 [response] 的视图中：</p>
+<p><img src="images/100000000000055B000001C9A829A385.png" width="680" height="227" style="width:17.997cm;height:5.999cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000055B000001C9A829A385.png" /></p>
+<p>如果输入有误，错误信息将显示在一个名为 [errors] 的视图中：</p>
+<p><img src="images/1000000000000554000001C1D1104DBD.png" width="680" height="224" style="width:17.997cm;height:5.923cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000554000001C1D1104DBD.png" /></p>
+<h2 id="52">5.2. <span style="color: #4f81bd">应用程序架构</span></h2>
+<p>[person1] Web 应用程序将采用以下架构：</p>
+<p><img src="images/100000000000038B00000152145C92CE.png" width="454" height="169" style="width:12cm;height:4.471cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000038B00000152145C92CE.png" /></p>
+<p>这是一种单层架构：没有 [业务] 或 [DAO] 层，只有 [Web] 层。[ServletPersonne] 是应用程序控制器，负责处理所有客户端请求。为了响应这些请求，它会使用三个视图 [form、response、errors] 中的一个。</p>
+<p>我们需要确定 [ServletPersonne] 控制器在收到用户请求时，如何决定应采取的操作。客户端请求是一个 HTTP 流，其内容会因使用 GET 还是 POST 命令而有所不同。</p>
+<p><strong>GET 请求</strong></p>
+<p>在此情况下，HTTP 数据流如下所示：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">GET</span> <span class="o">/</span><span class="n">URL</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">Host</span><span class="p">:</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="p">:</span> <span class="n">Mozilla</span><span class="o">/</span><span class="mf">5.0</span> <span class="p">(</span><span class="n">Windows</span><span class="p">;</span> <span class="n">U</span><span class="p">;</span> <span class="n">Windows</span> <span class="n">NT</span> <span class="mf">5.1</span><span class="p">;</span> <span class="n">fr</span><span class="p">;</span> <span class="n">rv</span><span class="p">:</span><span class="mf">1.8.0.3</span><span class="p">)</span> <span class="n">Gecko</span><span class="o">/</span><span class="mi">20060426</span> <span class="n">Firefox</span><span class="o">/</span><span class="mf">1.5.0.3</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">Accept</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">xml</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xml</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xhtml</span><span class="o">+</span><span class="n">xml</span><span class="p">,</span><span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="n">text</span><span class="o">/</span><span class="n">plain</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">image</span><span class="o">/</span><span class="n">png</span><span class="p">,</span><span class="o">*/*</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.5</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Language</span><span class="p">:</span> <span class="n">fr</span><span class="o">-</span><span class="n">fr</span><span class="p">,</span><span class="n">fr</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">en</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span><span class="n">en</span><span class="o">-</span><span class="n">us</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span><span class="n">de</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.2</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="n">gzip</span><span class="p">,</span><span class="n">deflate</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Charset</span><span class="p">:</span> <span class="n">ISO</span><span class="o">-</span><span class="mi">8859</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span><span class="o">*</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.7</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="n">Keep</span><span class="o">-</span><span class="n">Alive</span><span class="p">:</span> <span class="mi">300</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="n">Connection</span><span class="p">:</span> <span class="n">keep</span><span class="o">-</span><span class="n">alive</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="p">[</span><span class="n">ligne</span> <span class="n">vide</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+<p>第 1 行指定请求的 URL，例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>GET /personne1/ HTTP/1.1
+</code></pre></div>
+<p>该 URL 可用于指定要执行的操作。可以使用多种方法：</p>
+<ol>
+  <li>URL 参数用于指定操作，例如 [/app?action=add&amp;id=4]。在此，[action] 参数告知控制器当前请求的是哪个操作。
+  </li>
+  <li>URL 的最后一个元素指定操作，例如 [/app/add?id=4]。在此，URL 的最后一个元素 [/add] 由控制器用于确定其必须执行的操作。
+  </li>
+</ol>
+
+<p>还有其他解决方案。上述两种是常见的。</p>
+<p><strong>POST 请求</strong></p>
+<p>在这种情况下，HTTP 流程如下所示：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">POST</span> <span class="o">/</span><span class="n">URL</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">Host</span><span class="p">:</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="p">:</span> <span class="n">Mozilla</span><span class="o">/</span><span class="mf">5.0</span> <span class="p">(</span><span class="n">Windows</span><span class="p">;</span> <span class="n">U</span><span class="p">;</span> <span class="n">Windows</span> <span class="n">NT</span> <span class="mf">5.1</span><span class="p">;</span> <span class="n">fr</span><span class="p">;</span> <span class="n">rv</span><span class="p">:</span><span class="mf">1.8.0.3</span><span class="p">)</span> <span class="n">Gecko</span><span class="o">/</span><span class="mi">20060426</span> <span class="n">Firefox</span><span class="o">/</span><span class="mf">1.5.0.3</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">Accept</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">xml</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xml</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xhtml</span><span class="o">+</span><span class="n">xml</span><span class="p">,</span><span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="n">text</span><span class="o">/</span><span class="n">plain</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">image</span><span class="o">/</span><span class="n">png</span><span class="p">,</span><span class="o">*/*</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.5</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Language</span><span class="p">:</span> <span class="n">fr</span><span class="o">-</span><span class="n">fr</span><span class="p">,</span><span class="n">fr</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">en</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span><span class="n">en</span><span class="o">-</span><span class="n">us</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span><span class="n">de</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.2</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="n">gzip</span><span class="p">,</span><span class="n">deflate</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Charset</span><span class="p">:</span> <span class="n">ISO</span><span class="o">-</span><span class="mi">8859</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span><span class="o">*</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.7</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="n">Keep</span><span class="o">-</span><span class="n">Alive</span><span class="p">:</span> <span class="mi">300</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="n">Connection</span><span class="p">:</span> <span class="n">keep</span><span class="o">-</span><span class="n">alive</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="n">Referer</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">personne1</span><span class="o">/</span><span class="n">main</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="n">Cookie</span><span class="p">:</span> <span class="n">JSESSIONID</span><span class="o">=</span><span class="mi">9</span><span class="n">F5E5BFA29643FC6B1601EEED907E1F9</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">www</span><span class="o">-</span><span class="n">form</span><span class="o">-</span><span class="n">urlencoded</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="p">:</span> <span class="mi">43</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="p">[</span><span class="n">ligne</span> <span class="n">vide</span><span class="p">]</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="n">txtNom</span><span class="o">=&amp;</span><span class="n">txtAge</span><span class="o">=&amp;</span><span class="n">action</span><span class="o">=</span><span class="n">validationFormulaire</span>
+</code></pre></div></td></tr></table></div>
+<p>第 1 行指定了请求的 URL，例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>POST /personne1/main HTTP/1.1
+</code></pre></div>
+<p>该 URL 可用于指定要执行的操作，这与 GET 请求类似。在 GET 请求中，[action] 参数包含在 URL 中。此处同样适用，例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>POST /appli?action=ajouter&amp;id=4 HTTP/1.1
+</code></pre></div>
+<p>不过，[action] 参数也可以包含在提交的参数中（如上文第 15 行所示），例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>POST /appli HTTP/1.1
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>...
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>[ligne vide]
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>action=ajouter&amp;id=4
+</code></pre></div>
+<p>接下来，我们将使用这些不同的技术来告诉控制器该做什么：</p>
+<ul>
+  <li>在请求的 URL 中包含 <i>action</i> 参数：
+  </li>
+</ul>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>POST /appli?action=ajouter&amp;id=4 HTTP/1.1
+</code></pre></div>
+<ul>
+  <li>提交 <i>action</i> 参数：
+  </li>
+</ul>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>POST /appli HTTP/1.1
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>...
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>[ligne vide]
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>action=ajouter&amp;id=4
+</code></pre></div>
+<ul>
+  <li>将 URL 的最后一个元素用作操作名称：
+  </li>
+</ul>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>POST /appli/ajouter?id=4 HTTP/1.1
+</code></pre></div>
+<h2 id="53-eclipse">5.3. <span style="color: #4f81bd">Eclipse 项目</span></h2>
+<p>要为 Web 应用程序 [personne1] 创建 Eclipse 项目 [mvc-personne-01]，请按照第<a href="#creation-projet-web"><u><span style="color: #0563c1"> 3.1</span></u></a> 节中的步骤操作。 </p>
+<p><img src="images/10000000000002640000010B131B52DA.png" width="428" height="187" style="width:11.329cm;height:4.942cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002640000010B131B52DA.png" /></p>
+<p>我们将不保留默认上下文 [mvc-personne-01]。我们将如下所示选择 [personne1]：</p>
+<p><img src="images/10000000000000C5000000F3462229B7.png" width="138" height="170" style="width:3.649cm;height:4.501cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000C5000000F3462229B7.png" /></p>
+<p>结果如下：</p>
+<p><img src="images/10000000000000E9000000F6899FBB3D.png" width="163" height="172" style="width:4.309cm;height:4.549cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000E9000000F6899FBB3D.png" /></p>
+<p>若需更改 Web 应用程序上下文，请使用以下选项：[右键单击项目 -&gt; 属性 -&gt; J2EE]：</p>
+<p><img src="images/1000000000000212000000C675DC7075.png" width="267" height="100" style="width:7.061cm;height:2.639cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000212000000C675DC7075.png" /></p>
+<p>在 [1] 中输入新的上下文。</p>
+<p>我们将在 [WEB-INF] 文件夹中创建一个名为 [vues] 的子文件夹：[右键单击 WEB-INF -&gt; 新建 -&gt; 文件夹]：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000219000000E31AA38D2B.png" width="376" height="159" style="display:inline-block; margin:4px;width:9.94cm;height:4.202cm;" class="odt-zoomable" data-zoom-src="images/1000000000000219000000E31AA38D2B.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000EA00000120ED3E02DE.png" width="164" height="201" style="display:inline-block; margin:4px;width:4.33cm;height:5.329cm;" class="odt-zoomable" data-zoom-src="images/10000000000000EA00000120ED3E02DE.png" /></td></tr></table>
+
+<p>新项目现在如下所示：</p>
+<p><img src="images/100000000000015F00000137A476AFDB.png" width="160" height="142" style="width:4.24cm;height:3.757cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000015F00000137A476AFDB.png" /></p>
+<p>项目完成后将呈现如下效果：</p>
+<p><img src="images/10000000000000E30000017F6F0446E5.png" width="159" height="268" style="width:4.2cm;height:7.086cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000E30000017F6F0446E5.png" /></p>
+<ul>
+  <li>[ServletPersonne] 控制器位于 [src] 文件夹中
+  </li>
+  <li>用于视图 [form、response、errors] 的 JSP 页面位于 [WEB-INF/vues] 文件夹中，这阻止了用户直接访问它们，如下例所示：
+  </li>
+</ul>
+
+<p><img src="images/100000000000029F000000EF08A5DE13.png" width="470" height="167" style="width:12.43cm;height:4.427cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000029F000000EF08A5DE13.png" /></p>
+<p>接下来我们将介绍 [/personne1] Web 应用程序的各个组件。建议读者在阅读过程中逐步创建这些组件。</p>
+<p><a id="personne1-web-xml"></a></p>
+<h2 id="54-person1-web">5.4. <span style="color: #4f81bd">[person1] Web 应用程序的配置</span></h2>
+<p><strong>/person1</strong> 应用程序的 <strong>web.xml</strong> 文件如下所示：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-xml">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;?</span><span style="color:#3f7f7f">xml </span><span style="color:#7f007f">version</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;1.0&quot; </span><span style="color:#7f007f">encoding</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;UTF-8&quot;</span><span style="color:#008080">?&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">web-app </span><span style="color:#7f007f">id</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;WebApp_ID&quot; </span><span style="color:#7f007f">version</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;2.4&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#2a00ff">    </span><span style="color:#7f007f">xmlns</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;http://java.sun.com/xml/ns/j2ee&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#2a00ff">    </span><span style="color:#7f007f">xmlns:xsi</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#2a00ff">    </span><span style="color:#7f007f">xsi:schemaLocation</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd&quot;</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">display-name</span><span style="color:#008080">&gt;</span><span style="color:#000000">mvc-personne-01</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">display-name</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">&lt;!--  ServletPersonne --&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">servlet</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">servlet-name</span><span style="color:#008080">&gt;</span><span style="color:#000000">personne</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">servlet-name</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">servlet-class</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            istia.st.servlets.personne.ServletPersonne</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">servlet-class</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">init-param</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">param-name</span><span style="color:#008080">&gt;</span><span style="color:#000000">urlReponse</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">param-name</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">param-value</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                /WEB-INF/vues/reponse.jsp</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">param-value</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">init-param</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">init-param</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">param-name</span><span style="color:#008080">&gt;</span><span style="color:#000000">urlErreurs</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">param-name</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">param-value</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                /WEB-INF/vues/erreurs.jsp</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">param-value</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">init-param</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">init-param</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">param-name</span><span style="color:#008080">&gt;</span><span style="color:#000000">urlFormulaire</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">param-name</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">param-value</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                /WEB-INF/vues/formulaire.jsp</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">param-value</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">init-param</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">servlet</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">&lt;!--  Mapping ServletPersonne--&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">servlet-mapping</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">servlet-name</span><span style="color:#008080">&gt;</span><span style="color:#000000">personne</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">servlet-name</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">url-pattern</span><span style="color:#008080">&gt;</span><span style="color:#000000">/main</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">url-pattern</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">servlet-mapping</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">&lt;!--  welcome files --&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">welcome-file-list</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">welcome-file</span><span style="color:#008080">&gt;</span><span style="color:#000000">index.jsp</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">welcome-file</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">welcome-file-list</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">web-app</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+</code></pre></div>
+
+<p>这个配置文件说明了什么？</p>
+<ul>
+  <li>第 34–37 行：URL <b>/main</b> 由名为 <b>person</b> 的 Servlet 处理
+  </li>
+  <li>第 10–13 行：名为<b>“person”</b>的 Servlet 是 [ServletPersonne] 类的实例
+  </li>
+  <li>第 14–19 行：定义了一个名为 [urlResponse] 的配置参数。这是 [response] 视图的 URL。
+  </li>
+  <li>第 20–25 行：定义了一个名为 [urlErrors] 的配置参数。这是 [errors] 视图的 URL。
+  </li>
+  <li>第 26–31 行：定义名为 [urlForm] 的配置参数。这是 [form] 视图的 URL。
+  </li>
+  <li>第 40 行：[index.jsp] 将作为应用程序的首页。
+  </li>
+</ul>
+
+<p>用于 [form、response、errors] 视图的 JSP 页面的 URL 均由配置参数定义。这样，在移动这些页面时无需重新编译应用程序。</p>
+<p>当用户请求 URL [/person1] 时，[index.jsp] 文件将发送响应（主页文件，第 40 行）。该文件位于 [WebContent] 文件夹的根目录下：</p>
+<p><img src="images/100000000000007800000050DE6B2C52.png" width="84" height="56" style="width:2.221cm;height:1.482cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000007800000050DE6B2C52.png" /></p>
+<p>其内容如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#bf5f3f">&lt;%@ </span><span style="color:#3f7f7f">page </span><span style="color:#7f007f">language</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;java&quot; </span><span style="color:#7f007f">contentType</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;text/html; charset=ISO-8859-1&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#2a00ff">    </span><span style="color:#7f007f">pageEncoding</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;ISO-8859-1&quot;</span><span style="color:#bf5f3f">%&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;!</span><span style="color:#3f7f7f">DOCTYPE </span><span style="color:#000080">HTML </span><span style="color:#808080">PUBLIC </span><span style="color:#000080">&quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;%</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  response.sendRedirect(</span><span style="color:#2a00ff">&quot;/personne1/main&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">%&gt;</span></span>
+</code></pre></div>
+
+<p>[index.jsp] 页面仅将客户端重定向至 URL [/person1/main]。因此，当浏览器请求 URL [/person1] 时，[index.jsp] 会向其发送以下 HTTP 响应：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span>
+<span class="normal"><a href="#__codelineno-9-6">6</a></span>
+<span class="normal"><a href="#__codelineno-9-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>HTTP/1.x 302 Déplacé Temporairement
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>Server: Apache-Coyote/1.1
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>Set-Cookie: JSESSIONID=9F5E5BFA29643FC6B1601EEED907E1F9; Path=/personne1
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>Location: http://localhost:8080/personne1/main
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>Content-Type: text/html;charset=ISO-8859-1
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>Content-Length: 0
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>Date: Thu, 18 May 2006 15:45:23 GMT
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>第 1 行：HTTP/1.1 响应，用于指示服务器重定向到另一个 URL
+  </li>
+  <li>第 4 行：浏览器应重定向到的 URL
+  </li>
+</ul>
+
+<p>收到此响应后，浏览器将按照指示（第 4 行）请求 URL [/person1/main]。[/person1] 应用程序的 [web.xml] 文件指定此请求将由 [ServletPersonne] 控制器处理（第 35–36 行）。</p>
+<h2 id="55">5.5. <span style="color: #4f81bd">视图代码</span></h2>
+<p>我们从创建视图开始编写 Web 应用程序。这些视图有助于定义用户在图形界面方面的需求，并且可以在不依赖控制器的情况下进行测试。</p>
+<h3 id="551">5.5.1. <span style="color: #4f81bd">[表单]视图</span></h3>
+<p>此视图用于显示用于输入姓名和年龄的表单：</p>
+<p><img src="images/10000000000002A10000017CED3BC78C.png" width="337" height="190" style="width:8.904cm;height:5.029cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002A10000017CED3BC78C.png" /></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>HTML
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>HTML 类型</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>名称</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>角色</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>1
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">&lt;input type=&quot;text&quot;&gt;</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">txtName</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">输入姓名</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>2
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">&lt;input type=&quot;text&quot;&gt;</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">txtAge</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">输入年龄</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>3
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">&lt;input type=&quot;submit&quot;&gt;</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">将输入的值发送至 URL /person1/main 的服务器</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>4
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">&lt;input type=&quot;reset&quot;&gt;</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">将页面恢复到浏览器最初接收时的状态</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>5
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">&lt;input type=&quot;button&quot;&gt;</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">用于清除输入字段 [1] 和 [2] 的内容</div></td></tr></table>
+
+<p>该按钮由 JSP 页面 [formulaire.jsp] 生成。其模板包含以下元素：</p>
+<ul>
+  <li>[name]：在与会话属性键“name”关联的会话属性中找到的名称（字符串）
+  </li>
+  <li>[age]：在与会话属性键“age”关联的数据中找到的年龄（字符串）
+  </li>
+</ul>
+
+<p>当用户请求 URL [/person1/main]（即 [ServletPersonne] 控制器的 URL）时，将获取 [form] 视图。生成 [form] 视图的 JSP 页面 [formulaire.jsp] 的代码如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#bf5f3f">&lt;%@ </span><span style="color:#3f7f7f">page </span><span style="color:#7f007f">language</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;java&quot; </span><span style="color:#7f007f">contentType</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;text/html; charset=ISO-8859-1&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#2a00ff">    </span><span style="color:#7f007f">pageEncoding</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;ISO-8859-1&quot;</span><span style="color:#bf5f3f">%&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;!</span><span style="color:#3f7f7f">DOCTYPE </span><span style="color:#000080">HTML </span><span style="color:#808080">PUBLIC </span><span style="color:#000080">&quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;%</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// on récupère les données du modèle</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  String nom=(String)request.getAttribute(</span><span style="color:#2a00ff">&quot;nom&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  String age=(String)request.getAttribute(</span><span style="color:#2a00ff">&quot;age&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">%&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">html</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">head</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">title</span><span style="color:#008080">&gt;</span><span style="color:#000000">Personne - formulaire</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">title</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">head</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">body</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">center</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">h2</span><span style="color:#008080">&gt;</span><span style="color:#000000">Personne - formulaire</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">h2</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">hr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">form </span><span style="color:#7f007f">method</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;post&quot;</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">table</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">tr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">              </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span><span style="color:#000000">Nom</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;&lt;</span><span style="color:#3f7f7f">input </span><span style="color:#7f007f">name</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;txtNom&quot; </span><span style="color:#7f007f">value</span><span style="color:#000000">=</span>&quot;<span style="color:#bf5f3f">&lt;%=</span><span style="color:#000000"> nom </span><span style="color:#bf5f3f">%&gt;</span>&quot;<span style="color:#000000"> </span><span style="color:#7f007f">type</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;text&quot; </span><span style="color:#7f007f">size</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;20&quot;</span><span style="color:#008080">&gt;&lt;/</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">tr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">tr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">              </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span><span style="color:#000000">Age</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;&lt;</span><span style="color:#3f7f7f">input </span><span style="color:#7f007f">name</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;txtAge&quot; </span><span style="color:#7f007f">value</span><span style="color:#000000">=</span>&quot;<span style="color:#bf5f3f">&lt;%=</span><span style="color:#000000"> age </span><span style="color:#bf5f3f">%&gt;</span>&quot;<span style="color:#000000"> </span><span style="color:#7f007f">type</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;text&quot; </span><span style="color:#7f007f">size</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;3&quot;</span><span style="color:#008080">&gt;&lt;/</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">tr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">tr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">table</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">table</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">tr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">              </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;&lt;</span><span style="color:#3f7f7f">input </span><span style="color:#7f007f">type</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;submit&quot; </span><span style="color:#7f007f">value</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;Envoyer&quot;</span><span style="color:#008080">&gt;&lt;/</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;&lt;</span><span style="color:#3f7f7f">input </span><span style="color:#7f007f">type</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;reset&quot; </span><span style="color:#7f007f">value</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;Rétablir&quot;</span><span style="color:#008080">&gt;&lt;/</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;&lt;</span><span style="color:#3f7f7f">input </span><span style="color:#7f007f">type</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;button&quot; </span><span style="color:#7f007f">value</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;Effacer&quot;</span><span style="color:#008080">&gt;&lt;/</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">tr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">table</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">input </span><span style="color:#7f007f">type</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;hidden&quot; </span><span style="color:#7f007f">name</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;action&quot; </span><span style="color:#7f007f">value</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;validationFormulaire&quot;</span><span style="color:#008080">&gt;</span><span style="color:#000000"> </span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">form</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">center</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">body</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">html</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+</code></pre></div>
+
+<ul>
+  <li>第6-7行：JSP页面首先从请求中获取其模型的[name, age]元素。在正常应用程序运行中，控制器[ServletPersonne]将构建此模型。
+  </li>
+  <li>第18-38行：JSP页面生成一个HTML表单（&lt;form&gt;标签）
+  </li>
+  <li>第 18 行：&lt;form&gt; 标签未指定 <i>action</i> 属性，用于指定处理 [<i>Submit</i>] 按钮（第 32 行）提交的值的 URL。 表单值将被提交至获取表单的 URL，即 [ServletPersonne] 控制器的 URL。因此，该控制器既用于生成最初由 GET 请求请求的空表单，也用于处理通过 [Submit] 按钮提交的输入数据。
+  </li>
+  <li>提交的值来自 HTML 字段 [txtName]（第 22 行）、[txtAge]（第 26 行）和 [action]（第 37 行）。最后一个参数将使控制器知道它需要做什么。
+  </li>
+  <li>表单首次显示时，输入字段 [txtName] 和 [txtAge] 分别通过变量 [name]（第 22 行）和 [age]（第 26 行）进行初始化。 这些变量从请求属性（第 6–7 行）中获取其值，而这些属性已知是由 Servlet 初始化的。因此，是 Servlet 设置了表单输入字段的初始内容。
+  </li>
+  <li>第 33 行：类型为 [reset] 的 [Reset] 按钮将表单恢复到浏览器接收它时的状态。
+  </li>
+  <li>第 34 行：类型为 [reset] 的 [Clear] 按钮目前没有功能。
+  </li>
+</ul>
+
+<p>今后，当需要同时指定视图名称及其模型时，我们将把此视图称为 [form(name, age)] 视图。此外，请注意，当用户点击 [Submit] 按钮时，[txtName, txtAge] 参数会被提交到 URL [/person1/main]。</p>
+<h3 id="552-response">5.5.2. <span style="color: #4f81bd">[response]视图</span></h3>
+<p>当表单中输入的值有效时，该视图会显示这些值：</p>
+<p><img src="images/1000000000000559000001C5EA2FEDAD.png" width="680" height="225" style="width:17.997cm;height:5.955cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000559000001C5EA2FEDAD.png" /></p>
+<p>该视图由 JSP 页面 [response.jsp] 生成。其模板包含以下元素：</p>
+<ul>
+  <li>[name]：在会话属性中找到的名称（字符串），与键“name”相关联
+  </li>
+  <li>[age]：一个年龄（字符串），该值将出现在会话属性中，与键“age”相关联
+  </li>
+</ul>
+
+<p>JSP 页面 [reponse.jsp] 的代码如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#bf5f3f">&lt;%@ </span><span style="color:#3f7f7f">page </span><span style="color:#7f007f">language</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;java&quot; </span><span style="color:#7f007f">contentType</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;text/html; charset=ISO-8859-1&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#2a00ff">    </span><span style="color:#7f007f">pageEncoding</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;ISO-8859-1&quot;</span><span style="color:#bf5f3f">%&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;!</span><span style="color:#3f7f7f">DOCTYPE </span><span style="color:#000080">HTML </span><span style="color:#808080">PUBLIC </span><span style="color:#000080">&quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;%</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// on récupère les données du modèle</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  String nom=(String)request.getAttribute(</span><span style="color:#2a00ff">&quot;nom&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  String age=(String)request.getAttribute(</span><span style="color:#2a00ff">&quot;age&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">%&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">html</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">head</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">title</span><span style="color:#008080">&gt;</span><span style="color:#000000">Personne</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">title</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">head</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">body</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">h2</span><span style="color:#008080">&gt;</span><span style="color:#000000">Personne - réponse</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">h2</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">hr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">table</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">tr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span><span style="color:#000000">Nom</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span><span style="color:#bf5f3f">&lt;%=</span><span style="color:#000000"> nom </span><span style="color:#bf5f3f">%&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">tr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">tr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span><span style="color:#000000">Age</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span><span style="color:#bf5f3f">&lt;%=</span><span style="color:#000000"> age </span><span style="color:#bf5f3f">%&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">tr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">table</span><span style="color:#008080">&gt;</span><span style="color:#000000">      </span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">body</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">html</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+</code></pre></div>
+
+<ul>
+  <li>第 6-7 行：JSP 页面首先从请求中获取其模型的 [name, age] 元素。在应用程序的正常运行过程中，[ServletPersonne] 控制器将构建此模型。
+  </li>
+  <li>随后，模型元素 [name, age] 分别在第 20 行和第 24 行显示出来
+  </li>
+</ul>
+
+<p>此后，我们将此视图称为 [response(name, age)] 视图。</p>
+<h3 id="553-errors">5.5.3. <span style="color: #4f81bd">[errors]视图</span></h3>
+<p>该视图以以下形式报告输入错误：</p>
+<p><img src="images/1000000000000562000001CC8B8EA19E.png" width="680" height="227" style="width:17.997cm;height:6.008cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000562000001CC8B8EA19E.png" /></p>
+<p>它由 JSP 页面 [errors.jsp] 生成。其模型由以下元素组成：</p>
+<ul>
+  <li>[errors]：一个错误消息列表（ArrayList），这些消息将出现在请求属性中，并关联键“errors”
+  </li>
+</ul>
+
+<p>JSP 页面 [errors.jsp] 的代码如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#bf5f3f">&lt;%@ </span><span style="color:#3f7f7f">page </span><span style="color:#7f007f">language</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;java&quot; </span><span style="color:#7f007f">contentType</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;text/html; charset=ISO-8859-1&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#2a00ff">    </span><span style="color:#7f007f">pageEncoding</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;ISO-8859-1&quot;</span><span style="color:#bf5f3f">%&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;!</span><span style="color:#3f7f7f">DOCTYPE </span><span style="color:#000080">HTML </span><span style="color:#808080">PUBLIC </span><span style="color:#000080">&quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#bf5f3f">&lt;%@ </span><span style="color:#3f7f7f">page </span><span style="color:#7f007f">import</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;java.util.ArrayList&quot; </span><span style="color:#bf5f3f">%&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;%</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// on récupère les données du modèle</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  ArrayList erreurs=(ArrayList)request.getAttribute(</span><span style="color:#2a00ff">&quot;erreurs&quot;</span><span style="color:#000000">);  </span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">%&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">html</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">head</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">title</span><span style="color:#008080">&gt;</span><span style="color:#000000">Personne</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">title</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">head</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">body</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">h2</span><span style="color:#008080">&gt;</span><span style="color:#000000">Les erreurs suivantes se sont produites</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">h2</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">ul</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#bf5f3f">&lt;%</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000">(</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> i=0;i&lt;erreurs.size();i++){</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            out.println(</span><span style="color:#2a00ff">&quot;&lt;li&gt;&quot;</span><span style="color:#000000"> + (String) erreurs.get(i) + </span><span style="color:#2a00ff">&quot;&lt;/li&gt;\n&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        }</span><span style="color:#3f7f5f">//for</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#bf5f3f">%&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">ul</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">body</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">html</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+</code></pre></div>
+
+<ul>
+  <li>第 8 行：JSP 页面首先从请求中的模型中检索 [errors] 元素。该元素表示一个包含 <i>String</i> 元素的 <i>ArrayList</i> 对象。这些元素即为错误消息。在应用程序正常运行期间，[ServletPersonne] 控制器将构建此模型。
+  </li>
+  <li>第 18–22 行：显示错误消息列表。为此，我们需要在页面的 HTML 主体中编写 Java 代码。我们应始终尽量减少此类代码，以避免 HTML 代码杂乱无章。稍后我们将看到，有方法可以减少 JSP 页面中的 Java 代码量。
+  </li>
+  <li>第 4 行：请注意 JSP 页面所需包的 import 标签
+  </li>
+</ul>
+
+<p>我们将此视图称为 [errors(errors)] 视图。</p>
+<h2 id="56">5.6. <span style="color: #4f81bd">视图测试</span></h2>
+<p>即使尚未编写控制器，也可以测试 JSP 页面的有效性。为此，必须满足两个条件：</p>
+<ul>
+  <li>必须能够直接从应用程序请求这些页面，而无需通过控制器
+  </li>
+  <li>JSP 页面必须自行初始化模型，该模型通常由控制器构建
+  </li>
+</ul>
+
+<p>要执行这些测试，我们将视图的 JSP 页面复制到 Eclipse 项目的 [/WebContent/JSP] 文件夹中：</p>
+<p><img src="images/100000000000016B0000015376221697.png" width="181" height="169" style="width:4.8cm;height:4.484cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000016B0000015376221697.png" /></p>
+<p>然后，在 JSP 文件夹中，对页面进行如下修改：</p>
+<p>[form.jsp]：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;%</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// -- test : on crée le modèle de la page</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  request.setAttribute(</span><span style="color:#2a00ff">&quot;nom&quot;</span><span style="color:#000000">,</span><span style="color:#2a00ff">&quot;tintin&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  request.setAttribute(</span><span style="color:#2a00ff">&quot;age&quot;</span><span style="color:#000000">,</span><span style="color:#2a00ff">&quot;30&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">%&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;%</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// on récupère les données du modèle</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  String nom=(String)request.getAttribute(</span><span style="color:#2a00ff">&quot;nom&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  String age=(String)request.getAttribute(</span><span style="color:#2a00ff">&quot;age&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">%&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">html</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">head</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+</code></pre></div>
+
+<p>第3至7行是新增的，用于生成第11至12行所需的模板。</p>
+<p>[reponse.jsp]:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;%</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// -- test : on crée le modèle de la page</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  request.setAttribute(</span><span style="color:#2a00ff">&quot;nom&quot;</span><span style="color:#000000">,</span><span style="color:#2a00ff">&quot;milou&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  request.setAttribute(</span><span style="color:#2a00ff">&quot;age&quot;</span><span style="color:#000000">,</span><span style="color:#2a00ff">&quot;10&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">%&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;%</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// on récupère les données du modèle</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  String nom=(String)request.getAttribute(</span><span style="color:#2a00ff">&quot;nom&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  String age=(String)request.getAttribute(</span><span style="color:#2a00ff">&quot;age&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">%&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">html</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">head</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+</code></pre></div>
+
+<p>第3至7行是添加的，用于创建第11至12行中页面所需的模板。</p>
+<p>[errors.jsp]:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;%</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// -- test : on crée le modèle de la page</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  ArrayList&lt;String&gt; erreurs1=</span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> ArrayList&lt;String&gt;();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  erreurs1.add(</span><span style="color:#2a00ff">&quot;erreur1&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  erreurs1.add(</span><span style="color:#2a00ff">&quot;erreur2&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  request.setAttribute(</span><span style="color:#2a00ff">&quot;erreurs&quot;</span><span style="color:#000000">,erreurs1);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">%&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;%</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// on récupère les données du modèle</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  ArrayList erreurs=(ArrayList)request.getAttribute(</span><span style="color:#2a00ff">&quot;erreurs&quot;</span><span style="color:#000000">);  </span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">%&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">html</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">head</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+</code></pre></div>
+
+<p>第3至9行是新增的，用于构建第13行所需的模型。</p>
+<p>如果尚未启动 Tomcat，请先启动，然后访问以下 URL：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000172000001039A1CE7BC.png" width="259" height="181" style="display:inline-block; margin:4px;width:6.849cm;height:4.794cm;" class="odt-zoomable" data-zoom-src="images/1000000000000172000001039A1CE7BC.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000015F000000B91C25C520.png" width="246" height="129" style="display:inline-block; margin:4px;width:6.5cm;height:3.425cm;" class="odt-zoomable" data-zoom-src="images/100000000000015F000000B91C25C520.png" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000019B000000A5E0885D79.png" width="289" height="116" style="display:inline-block; margin:4px;width:7.65cm;height:3.071cm;" class="odt-zoomable" data-zoom-src="images/100000000000019B000000A5E0885D79.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p>我们得到了预期的视图。既然我们对应用程序的 JSP 页面已有相当程度的信心，就可以继续编写其控制器 [ServletPersonne] 了。</p>
+<h2 id="57-servletpersonne">5.7. <span style="color: #4f81bd"><strong><span style="color: #4f81bd">[ServletPersonne] 控制器</span></strong></span></h2>
+<p>剩下的就是编写 Web 应用程序的核心：控制器。其作用是：</p>
+<ul>
+  <li>获取客户端的请求，
+  </li>
+  <li>处理客户端请求的操作，
+  </li>
+  <li>返回相应的视图。
+  </li>
+</ul>
+
+<p>[ServletPersonne] 控制器将处理以下操作：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b><mark style="background-color: #c0c0c0">请求</mark></b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b><mark style="background-color: #c0c0c0">请求</mark></b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b><mark style="background-color: #c0c0c0">origin</mark></b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b><mark style="background-color: #c0c0c0">处理</mark></b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">1</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">[GET /person1/hand]</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">用户输入的 URL</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">- 发送空的 [form] 视图</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">2</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">[POST /person1/hand]</div><div style="margin:0 0 0.5em 0">并携带参数 [txtName,</div><div style="margin:0 0 0.5em 0">txtAge, action]</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">点击</div><div style="margin:0 0 0.5em 0">[提交] 按钮</div><div style="margin:0 0 0.5em 0">[表单]</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">- 检查参数 [txtName, txtAge] 的值</div><div style="margin:0 0 0.5em 0">- 如果答案错误，则返回视图 [errors(errors)]</div><div style="margin:0 0 0.5em 0">- 如果正确，则返回 [response(name,age)] 视图</div></td></tr></table>
+
+<p>当用户请求 URL [/person1/main] 时，应用程序便会启动。根据应用程序的 [web.xml] 文件（参见<a href="#personne1-web-xml"><u><span style="color: #0563c1">第 5.4</span></u></a> 节），该请求由 <strong>ServletPerson</strong>ne 类的实例处理，下面我们将对此进行说明。</p>
+<h3 id="571">5.7.1. <span style="color: #4f81bd">控制器框架</span></h3>
+<p>[ServletPersonne] 控制器的代码如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-16-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-16-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-16-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-16-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-16-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-16-10">10</a></span>
+<span class="normal"><a href="#__codelineno-16-11">11</a></span>
+<span class="normal"><a href="#__codelineno-16-12">12</a></span>
+<span class="normal"><a href="#__codelineno-16-13">13</a></span>
+<span class="normal"><a href="#__codelineno-16-14">14</a></span>
+<span class="normal"><a href="#__codelineno-16-15">15</a></span>
+<span class="normal"><a href="#__codelineno-16-16">16</a></span>
+<span class="normal"><a href="#__codelineno-16-17">17</a></span>
+<span class="normal"><a href="#__codelineno-16-18">18</a></span>
+<span class="normal"><a href="#__codelineno-16-19">19</a></span>
+<span class="normal"><a href="#__codelineno-16-20">20</a></span>
+<span class="normal"><a href="#__codelineno-16-21">21</a></span>
+<span class="normal"><a href="#__codelineno-16-22">22</a></span>
+<span class="normal"><a href="#__codelineno-16-23">23</a></span>
+<span class="normal"><a href="#__codelineno-16-24">24</a></span>
+<span class="normal"><a href="#__codelineno-16-25">25</a></span>
+<span class="normal"><a href="#__codelineno-16-26">26</a></span>
+<span class="normal"><a href="#__codelineno-16-27">27</a></span>
+<span class="normal"><a href="#__codelineno-16-28">28</a></span>
+<span class="normal"><a href="#__codelineno-16-29">29</a></span>
+<span class="normal"><a href="#__codelineno-16-30">30</a></span>
+<span class="normal"><a href="#__codelineno-16-31">31</a></span>
+<span class="normal"><a href="#__codelineno-16-32">32</a></span>
+<span class="normal"><a href="#__codelineno-16-33">33</a></span>
+<span class="normal"><a href="#__codelineno-16-34">34</a></span>
+<span class="normal"><a href="#__codelineno-16-35">35</a></span>
+<span class="normal"><a href="#__codelineno-16-36">36</a></span>
+<span class="normal"><a href="#__codelineno-16-37">37</a></span>
+<span class="normal"><a href="#__codelineno-16-38">38</a></span>
+<span class="normal"><a href="#__codelineno-16-39">39</a></span>
+<span class="normal"><a href="#__codelineno-16-40">40</a></span>
+<span class="normal"><a href="#__codelineno-16-41">41</a></span>
+<span class="normal"><a href="#__codelineno-16-42">42</a></span>
+<span class="normal"><a href="#__codelineno-16-43">43</a></span>
+<span class="normal"><a href="#__codelineno-16-44">44</a></span>
+<span class="normal"><a href="#__codelineno-16-45">45</a></span>
+<span class="normal"><a href="#__codelineno-16-46">46</a></span>
+<span class="normal"><a href="#__codelineno-16-47">47</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">istia.st.servlets.personne</span><span class="p">;</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.IOException</span><span class="p">;</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashMap</span><span class="p">;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="kn">import</span><span class="w"> </span><span class="nn">javax.servlet.ServletConfig</span><span class="p">;</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="kn">import</span><span class="w"> </span><span class="nn">javax.servlet.ServletException</span><span class="p">;</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="kn">import</span><span class="w"> </span><span class="nn">javax.servlet.http.HttpServlet</span><span class="p">;</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="kn">import</span><span class="w"> </span><span class="nn">javax.servlet.http.HttpServletRequest</span><span class="p">;</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12"></a><span class="kn">import</span><span class="w"> </span><span class="nn">javax.servlet.http.HttpServletResponse</span><span class="p">;</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13"></a>
+<a id="__codelineno-16-14" name="__codelineno-16-14"></a><span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">&quot;serial&quot;</span><span class="p">)</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ServletPersonne</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">HttpServlet</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16"></a><span class="p">...</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17"></a>
+<a id="__codelineno-16-18" name="__codelineno-16-18"></a><span class="w">    </span><span class="c1">// init</span>
+<a id="__codelineno-16-19" name="__codelineno-16-19"></a><span class="w">    </span><span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">&quot;unchecked&quot;</span><span class="p">)</span>
+<a id="__codelineno-16-20" name="__codelineno-16-20"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-21" name="__codelineno-16-21"></a><span class="p">...</span>
+<a id="__codelineno-16-22" name="__codelineno-16-22"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-16-23" name="__codelineno-16-23"></a>
+<a id="__codelineno-16-24" name="__codelineno-16-24"></a><span class="w">    </span><span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">&quot;unchecked&quot;</span><span class="p">)</span>
+<a id="__codelineno-16-25" name="__codelineno-16-25"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doGet</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span>
+<a id="__codelineno-16-26" name="__codelineno-16-26"></a><span class="w">            </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">,</span><span class="w"> </span><span class="n">ServletException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-27" name="__codelineno-16-27"></a><span class="p">...</span>
+<a id="__codelineno-16-28" name="__codelineno-16-28"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-16-29" name="__codelineno-16-29"></a>
+<a id="__codelineno-16-30" name="__codelineno-16-30"></a><span class="w">    </span><span class="c1">// initial view display</span>
+<a id="__codelineno-16-31" name="__codelineno-16-31"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">doInit</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="p">{</span>
+<a id="__codelineno-16-32" name="__codelineno-16-32"></a><span class="p">...</span>
+<a id="__codelineno-16-33" name="__codelineno-16-33"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-16-34" name="__codelineno-16-34"></a>
+<a id="__codelineno-16-35" name="__codelineno-16-35"></a><span class="w">    </span><span class="c1">// form validation</span>
+<a id="__codelineno-16-36" name="__codelineno-16-36"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">doValidationFormulaire</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span>
+<a id="__codelineno-16-37" name="__codelineno-16-37"></a><span class="w">            </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="p">{</span>
+<a id="__codelineno-16-38" name="__codelineno-16-38"></a><span class="p">...</span>
+<a id="__codelineno-16-39" name="__codelineno-16-39"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-16-40" name="__codelineno-16-40"></a>
+<a id="__codelineno-16-41" name="__codelineno-16-41"></a><span class="w">    </span><span class="c1">// post</span>
+<a id="__codelineno-16-42" name="__codelineno-16-42"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doPost</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span>
+<a id="__codelineno-16-43" name="__codelineno-16-43"></a><span class="w">            </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">,</span><span class="w"> </span><span class="n">ServletException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-44" name="__codelineno-16-44"></a><span class="w">        </span><span class="c1">// we hand over to GET</span>
+<a id="__codelineno-16-45" name="__codelineno-16-45"></a><span class="w">        </span><span class="n">doGet</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">);</span>
+<a id="__codelineno-16-46" name="__codelineno-16-46"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-16-47" name="__codelineno-16-47"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>第 20–22 行：Servlet 首次加载时执行的 [init] 方法
+  </li>
+  <li>第 25–28 行：当向应用程序发出 GET 请求时，Web 服务器调用的 [doGet] 方法
+  </li>
+  <li>第 42–46 行：当向应用程序发出 POST 请求时，Web 服务器调用的 [doPost] 方法。如图所示，这也将由 [doGet] 方法（第 45 行）处理。
+  </li>
+  <li>第 31–33 行：[doInit] 方法处理操作 #1 [GET /person1/main]
+  </li>
+  <li>第 36–39 行：[doValidationFormulaire] 方法处理操作 #2 [POST /person1/main]，并处理提交的参数 [txtName, txtAge, action]。
+  </li>
+</ul>
+
+<p>接下来我们将详细介绍控制器中的各种方法</p>
+<h3 id="572">5.7.2. <span style="color: #4f81bd">控制器初始化</span></h3>
+<p>当 Servlet 容器加载控制器类时，会执行其 [init] 方法。此过程仅发生一次。一旦加载到内存中，控制器便驻留于此并处理来自不同客户端的请求。每个客户端由独立的执行线程处理，因此控制器的方法会由不同线程同时执行。请注意，正因如此，控制器绝不能包含其方法可能修改的字段。其字段必须为只读。 这些字段由 [init] 方法初始化，这也是该方法的主要作用。该方法具有一个独特特征：仅由单个线程执行一次。因此，在此方法内部，对控制器字段的并发访问不会产生问题。[init] 方法的目的是初始化 Web 应用程序所需的对象，这些对象将以只读模式被所有客户端线程共享。这些共享对象可以放置在两个位置：</p>
+<ul>
+  <li>控制器的私有字段
+  </li>
+  <li>应用程序的执行上下文（ServletContext）
+  </li>
+</ul>
+
+<p>[ServletPersonne] 控制器 [init] 方法的代码如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-17-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-17-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-17-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-17-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-17-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-17-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-17-10">10</a></span>
+<span class="normal"><a href="#__codelineno-17-11">11</a></span>
+<span class="normal"><a href="#__codelineno-17-12">12</a></span>
+<span class="normal"><a href="#__codelineno-17-13">13</a></span>
+<span class="normal"><a href="#__codelineno-17-14">14</a></span>
+<span class="normal"><a href="#__codelineno-17-15">15</a></span>
+<span class="normal"><a href="#__codelineno-17-16">16</a></span>
+<span class="normal"><a href="#__codelineno-17-17">17</a></span>
+<span class="normal"><a href="#__codelineno-17-18">18</a></span>
+<span class="normal"><a href="#__codelineno-17-19">19</a></span>
+<span class="normal"><a href="#__codelineno-17-20">20</a></span>
+<span class="normal"><a href="#__codelineno-17-21">21</a></span>
+<span class="normal"><a href="#__codelineno-17-22">22</a></span>
+<span class="normal"><a href="#__codelineno-17-23">23</a></span>
+<span class="normal"><a href="#__codelineno-17-24">24</a></span>
+<span class="normal"><a href="#__codelineno-17-25">25</a></span>
+<span class="normal"><a href="#__codelineno-17-26">26</a></span>
+<span class="normal"><a href="#__codelineno-17-27">27</a></span>
+<span class="normal"><a href="#__codelineno-17-28">28</a></span>
+<span class="normal"><a href="#__codelineno-17-29">29</a></span>
+<span class="normal"><a href="#__codelineno-17-30">30</a></span>
+<span class="normal"><a href="#__codelineno-17-31">31</a></span>
+<span class="normal"><a href="#__codelineno-17-32">32</a></span>
+<span class="normal"><a href="#__codelineno-17-33">33</a></span>
+<span class="normal"><a href="#__codelineno-17-34">34</a></span>
+<span class="normal"><a href="#__codelineno-17-35">35</a></span>
+<span class="normal"><a href="#__codelineno-17-36">36</a></span>
+<span class="normal"><a href="#__codelineno-17-37">37</a></span>
+<span class="normal"><a href="#__codelineno-17-38">38</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">istia.st.servlets.personne</span><span class="p">;</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="p">...</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">&quot;serial&quot;</span><span class="p">)</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ServletPersonne</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">HttpServlet</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="w">    </span><span class="c1">// instance parameters</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">urlErreurs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ArrayList</span><span class="w"> </span><span class="n">erreursInitialisation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">paramètres</span><span class="o">=</span><span class="p">{</span><span class="s">&quot;urlFormulaire&quot;</span><span class="p">,</span><span class="s">&quot;urlReponse&quot;</span><span class="p">};</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="w"> </span><span class="n">params</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11"></a>
+<a id="__codelineno-17-12" name="__codelineno-17-12"></a><span class="w">    </span><span class="c1">// init</span>
+<a id="__codelineno-17-13" name="__codelineno-17-13"></a><span class="w">    </span><span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">&quot;unchecked&quot;</span><span class="p">)</span>
+<a id="__codelineno-17-14" name="__codelineno-17-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-17-15" name="__codelineno-17-15"></a><span class="w">        </span><span class="c1">// retrieve servlet initialization parameters</span>
+<a id="__codelineno-17-16" name="__codelineno-17-16"></a><span class="w">        </span><span class="n">ServletConfig</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getServletConfig</span><span class="p">();</span>
+<a id="__codelineno-17-17" name="__codelineno-17-17"></a><span class="w">        </span><span class="c1">// other initialization parameters are processed</span>
+<a id="__codelineno-17-18" name="__codelineno-17-18"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">valeur</span><span class="o">=</span><span class="kc">null</span><span class="p">;</span>
+<a id="__codelineno-17-19" name="__codelineno-17-19"></a><span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">paramètres</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<a id="__codelineno-17-20" name="__codelineno-17-20"></a><span class="w">            </span><span class="c1">// parameter value</span>
+<a id="__codelineno-17-21" name="__codelineno-17-21"></a><span class="w">            </span><span class="n">valeur</span><span class="o">=</span><span class="n">config</span><span class="p">.</span><span class="na">getInitParameter</span><span class="p">(</span><span class="n">paramètres</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
+<a id="__codelineno-17-22" name="__codelineno-17-22"></a><span class="w">            </span><span class="c1">// present parameter?</span>
+<a id="__codelineno-17-23" name="__codelineno-17-23"></a><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">valeur</span><span class="o">==</span><span class="kc">null</span><span class="p">){</span>
+<a id="__codelineno-17-24" name="__codelineno-17-24"></a><span class="w">                </span><span class="c1">// we note the error</span>
+<a id="__codelineno-17-25" name="__codelineno-17-25"></a><span class="w">                </span><span class="n">erreursInitialisation</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;Le paramètre [&quot;</span><span class="o">+</span><span class="n">paramètres</span><span class="o">[</span><span class="n">i</span><span class="o">]+</span><span class="s">&quot;] n&#39;a pas été initialisé&quot;</span><span class="p">);</span>
+<a id="__codelineno-17-26" name="__codelineno-17-26"></a><span class="w">            </span><span class="p">}</span><span class="k">else</span><span class="p">{</span>
+<a id="__codelineno-17-27" name="__codelineno-17-27"></a><span class="w">                </span><span class="c1">// parameter value is stored</span>
+<a id="__codelineno-17-28" name="__codelineno-17-28"></a><span class="w">                </span><span class="n">params</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">paramètres</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">,</span><span class="n">valeur</span><span class="p">);</span>
+<a id="__codelineno-17-29" name="__codelineno-17-29"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-17-30" name="__codelineno-17-30"></a><span class="w">            </span><span class="c1">// the [errors] view url has a special treatment</span>
+<a id="__codelineno-17-31" name="__codelineno-17-31"></a><span class="w">            </span><span class="n">urlErreurs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">.</span><span class="na">getInitParameter</span><span class="p">(</span><span class="s">&quot;urlErreurs&quot;</span><span class="p">);</span>
+<a id="__codelineno-17-32" name="__codelineno-17-32"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">urlErreurs</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span>
+<a id="__codelineno-17-33" name="__codelineno-17-33"></a><span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ServletException</span><span class="p">(</span>
+<a id="__codelineno-17-34" name="__codelineno-17-34"></a><span class="w">                        </span><span class="s">&quot;Le paramètre [urlErreurs] n&#39;a pas été initialisé&quot;</span><span class="p">);</span>
+<a id="__codelineno-17-35" name="__codelineno-17-35"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-17-36" name="__codelineno-17-36"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-17-37" name="__codelineno-17-37"></a><span class="p">...</span>
+<a id="__codelineno-17-38" name="__codelineno-17-38"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>第 16 行：获取 Web 应用程序配置，即 [web.xml] 文件的内容
+  </li>
+  <li>第 19–29 行：获取 Servlet 初始化参数，其名称在第 9 行的 [parameters] 数组中定义
+  </li>
+  <li>第 21 行：获取参数值
+  </li>
+  <li>第 25 行：如果参数不存在，则将该错误添加到最初为空的 [initializationErrors] 错误列表中（第 8 行）。
+  </li>
+  <li>第 28 行：如果参数存在，则将其与值一起存储在初始为空的 [params] 字典中（第 10 行）。
+  </li>
+  <li>第 31–35 行：[urlErrors] 参数必须存在，因为它指定了能够显示任何初始化错误的 [errors] 视图的 URL。如果该参数不存在，则通过抛出 [ServletException] 来终止应用程序（第 33 行）。
+  </li>
+</ul>
+
+<h3 id="573-doget">5.7.3. <span style="color: #4f81bd">[doGet] 方法</span></h3>
+<p>[doGet] 方法处理发送到 Servlet 的 GET 和 POST 请求，因为 [doPost] 方法会重定向到 [doGet] 方法。其代码如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-18-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-18-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-18-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-18-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-18-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-18-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-18-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-18-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-18-10">10</a></span>
+<span class="normal"><a href="#__codelineno-18-11">11</a></span>
+<span class="normal"><a href="#__codelineno-18-12">12</a></span>
+<span class="normal"><a href="#__codelineno-18-13">13</a></span>
+<span class="normal"><a href="#__codelineno-18-14">14</a></span>
+<span class="normal"><a href="#__codelineno-18-15">15</a></span>
+<span class="normal"><a href="#__codelineno-18-16">16</a></span>
+<span class="normal"><a href="#__codelineno-18-17">17</a></span>
+<span class="normal"><a href="#__codelineno-18-18">18</a></span>
+<span class="normal"><a href="#__codelineno-18-19">19</a></span>
+<span class="normal"><a href="#__codelineno-18-20">20</a></span>
+<span class="normal"><a href="#__codelineno-18-21">21</a></span>
+<span class="normal"><a href="#__codelineno-18-22">22</a></span>
+<span class="normal"><a href="#__codelineno-18-23">23</a></span>
+<span class="normal"><a href="#__codelineno-18-24">24</a></span>
+<span class="normal"><a href="#__codelineno-18-25">25</a></span>
+<span class="normal"><a href="#__codelineno-18-26">26</a></span>
+<span class="normal"><a href="#__codelineno-18-27">27</a></span>
+<span class="normal"><a href="#__codelineno-18-28">28</a></span>
+<span class="normal"><a href="#__codelineno-18-29">29</a></span>
+<span class="normal"><a href="#__codelineno-18-30">30</a></span>
+<span class="normal"><a href="#__codelineno-18-31">31</a></span>
+<span class="normal"><a href="#__codelineno-18-32">32</a></span>
+<span class="normal"><a href="#__codelineno-18-33">33</a></span>
+<span class="normal"><a href="#__codelineno-18-34">34</a></span>
+<span class="normal"><a href="#__codelineno-18-35">35</a></span>
+<span class="normal"><a href="#__codelineno-18-36">36</a></span>
+<span class="normal"><a href="#__codelineno-18-37">37</a></span>
+<span class="normal"><a href="#__codelineno-18-38">38</a></span>
+<span class="normal"><a href="#__codelineno-18-39">39</a></span>
+<span class="normal"><a href="#__codelineno-18-40">40</a></span>
+<span class="normal"><a href="#__codelineno-18-41">41</a></span>
+<span class="normal"><a href="#__codelineno-18-42">42</a></span>
+<span class="normal"><a href="#__codelineno-18-43">43</a></span>
+<span class="normal"><a href="#__codelineno-18-44">44</a></span>
+<span class="normal"><a href="#__codelineno-18-45">45</a></span>
+<span class="normal"><a href="#__codelineno-18-46">46</a></span>
+<span class="normal"><a href="#__codelineno-18-47">47</a></span>
+<span class="normal"><a href="#__codelineno-18-48">48</a></span>
+<span class="normal"><a href="#__codelineno-18-49">49</a></span>
+<span class="normal"><a href="#__codelineno-18-50">50</a></span>
+<span class="normal"><a href="#__codelineno-18-51">51</a></span>
+<span class="normal"><a href="#__codelineno-18-52">52</a></span>
+<span class="normal"><a href="#__codelineno-18-53">53</a></span>
+<span class="normal"><a href="#__codelineno-18-54">54</a></span>
+<span class="normal"><a href="#__codelineno-18-55">55</a></span>
+<span class="normal"><a href="#__codelineno-18-56">56</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">istia.st.servlets.personne</span><span class="p">;</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="p">...</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">&quot;serial&quot;</span><span class="p">)</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ServletPersonne</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">HttpServlet</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="w">    </span><span class="c1">// instance parameters</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">urlErreurs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ArrayList</span><span class="w"> </span><span class="n">erreursInitialisation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">paramètres</span><span class="o">=</span><span class="p">{</span><span class="s">&quot;urlFormulaire&quot;</span><span class="p">,</span><span class="s">&quot;urlReponse&quot;</span><span class="p">};</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="w"> </span><span class="n">params</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11"></a>
+<a id="__codelineno-18-12" name="__codelineno-18-12"></a><span class="p">...</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13"></a><span class="w">    </span><span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">&quot;unchecked&quot;</span><span class="p">)</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doGet</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15"></a><span class="w">            </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">,</span><span class="w"> </span><span class="n">ServletException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-16" name="__codelineno-18-16"></a>
+<a id="__codelineno-18-17" name="__codelineno-18-17"></a><span class="w">        </span><span class="c1">// check how the servlet was initialized</span>
+<a id="__codelineno-18-18" name="__codelineno-18-18"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">erreursInitialisation</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-19" name="__codelineno-18-19"></a><span class="w">            </span><span class="c1">// we hand over to the error page</span>
+<a id="__codelineno-18-20" name="__codelineno-18-20"></a><span class="w">            </span><span class="n">request</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;erreurs&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">erreursInitialisation</span><span class="p">);</span>
+<a id="__codelineno-18-21" name="__codelineno-18-21"></a><span class="w">            </span><span class="n">getServletContext</span><span class="p">().</span><span class="na">getRequestDispatcher</span><span class="p">(</span><span class="n">urlErreurs</span><span class="p">).</span><span class="na">forward</span><span class="p">(</span>
+<a id="__codelineno-18-22" name="__codelineno-18-22"></a><span class="w">                    </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">);</span>
+<a id="__codelineno-18-23" name="__codelineno-18-23"></a><span class="w">            </span><span class="c1">// end</span>
+<a id="__codelineno-18-24" name="__codelineno-18-24"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-18-25" name="__codelineno-18-25"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-18-26" name="__codelineno-18-26"></a>
+<a id="__codelineno-18-27" name="__codelineno-18-27"></a><span class="w">        </span><span class="c1">// retrieve the request sending method</span>
+<a id="__codelineno-18-28" name="__codelineno-18-28"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">méthode</span><span class="o">=</span><span class="n">request</span><span class="p">.</span><span class="na">getMethod</span><span class="p">().</span><span class="na">toLowerCase</span><span class="p">();</span>
+<a id="__codelineno-18-29" name="__codelineno-18-29"></a><span class="w">        </span><span class="c1">// retrieve the action to be executed</span>
+<a id="__codelineno-18-30" name="__codelineno-18-30"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">action</span><span class="o">=</span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;action&quot;</span><span class="p">);</span>
+<a id="__codelineno-18-31" name="__codelineno-18-31"></a><span class="w">        </span><span class="c1">// action?</span>
+<a id="__codelineno-18-32" name="__codelineno-18-32"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">action</span><span class="o">==</span><span class="kc">null</span><span class="p">){</span>
+<a id="__codelineno-18-33" name="__codelineno-18-33"></a><span class="w">            </span><span class="n">action</span><span class="o">=</span><span class="s">&quot;init&quot;</span><span class="p">;</span>
+<a id="__codelineno-18-34" name="__codelineno-18-34"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-18-35" name="__codelineno-18-35"></a><span class="w">        </span><span class="c1">// execution action</span>
+<a id="__codelineno-18-36" name="__codelineno-18-36"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">méthode</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;get&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">action</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;init&quot;</span><span class="p">)){</span>
+<a id="__codelineno-18-37" name="__codelineno-18-37"></a><span class="w">            </span><span class="c1">// start application</span>
+<a id="__codelineno-18-38" name="__codelineno-18-38"></a><span class="w">            </span><span class="n">doInit</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="n">response</span><span class="p">);</span>
+<a id="__codelineno-18-39" name="__codelineno-18-39"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-18-40" name="__codelineno-18-40"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-18-41" name="__codelineno-18-41"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">méthode</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;post&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">action</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;validationFormulaire&quot;</span><span class="p">)){</span>
+<a id="__codelineno-18-42" name="__codelineno-18-42"></a><span class="w">            </span><span class="c1">// validation of input form</span>
+<a id="__codelineno-18-43" name="__codelineno-18-43"></a><span class="w">            </span><span class="n">doValidationFormulaire</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="n">response</span><span class="p">);</span>
+<a id="__codelineno-18-44" name="__codelineno-18-44"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-18-45" name="__codelineno-18-45"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-18-46" name="__codelineno-18-46"></a><span class="w">        </span><span class="c1">// other cases</span>
+<a id="__codelineno-18-47" name="__codelineno-18-47"></a><span class="w">        </span><span class="n">doInit</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="n">response</span><span class="p">);</span>
+<a id="__codelineno-18-48" name="__codelineno-18-48"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-18-49" name="__codelineno-18-49"></a>
+<a id="__codelineno-18-50" name="__codelineno-18-50"></a><span class="w">    </span><span class="c1">// post</span>
+<a id="__codelineno-18-51" name="__codelineno-18-51"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doPost</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span>
+<a id="__codelineno-18-52" name="__codelineno-18-52"></a><span class="w">            </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">,</span><span class="w"> </span><span class="n">ServletException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-53" name="__codelineno-18-53"></a><span class="w">        </span><span class="c1">// we hand over to GET</span>
+<a id="__codelineno-18-54" name="__codelineno-18-54"></a><span class="w">        </span><span class="n">doGet</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">);</span>
+<a id="__codelineno-18-55" name="__codelineno-18-55"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-18-56" name="__codelineno-18-56"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>第 18–25 行：我们检查初始化错误列表是否为空。如果不是，则显示 [errors(initializationErrors)] 视图，该视图将报告错误。
+  </li>
+</ul>
+
+<p>要理解这段代码，你需要回顾 [errors] 视图模板：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>&lt;%
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>// on récupère les données du modèle
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>  ArrayList erreurs=(ArrayList)request.getAttribute(&quot;erreurs&quot;);  
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>%&gt;
+</code></pre></div>
+<p>[errors] 视图期望请求中存在名为“errors”的键。控制器在第 20 行创建了该键。</p>
+<ul>
+  <li>第 28 行：我们获取客户端用于发起请求的 [get] 或 [post] 方法
+  </li>
+  <li>第 30 行：从请求中获取 [action] 参数的值。请注意，在我们的应用程序中，只有请求 #2 [POST /person1/main] 包含 [action] 参数。在此请求中，该参数的值为 [validationFormulaire]。
+  </li>
+  <li>第 31–34 行：如果 [action] 参数不存在，则将其值设为 &quot;init&quot;。初始请求 #1 [GET /person1/main] 即属于这种情况。
+  </li>
+  <li>第 36–40 行：处理请求 #1 [GET /person1/main]。
+  </li>
+  <li>第 41–45 行：处理请求 #2 [POST /person1/main]。
+  </li>
+  <li>第 47 行：如果前两种情况均不适用，则按情况 #1 进行处理
+  </li>
+</ul>
+
+<h3 id="574-doinit">5.7.4. <span style="color: #4f81bd">[doInit] 方法</span></h3>
+<p>该方法处理请求 #1 [GET /person1/main]。对于此请求，它必须返回空的 [form(name, age)] 视图。其代码如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-20-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-20-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-20-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-20-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-20-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-20-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-20-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-20-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-20-10">10</a></span>
+<span class="normal"><a href="#__codelineno-20-11">11</a></span>
+<span class="normal"><a href="#__codelineno-20-12">12</a></span>
+<span class="normal"><a href="#__codelineno-20-13">13</a></span>
+<span class="normal"><a href="#__codelineno-20-14">14</a></span>
+<span class="normal"><a href="#__codelineno-20-15">15</a></span>
+<span class="normal"><a href="#__codelineno-20-16">16</a></span>
+<span class="normal"><a href="#__codelineno-20-17">17</a></span>
+<span class="normal"><a href="#__codelineno-20-18">18</a></span>
+<span class="normal"><a href="#__codelineno-20-19">19</a></span>
+<span class="normal"><a href="#__codelineno-20-20">20</a></span>
+<span class="normal"><a href="#__codelineno-20-21">21</a></span>
+<span class="normal"><a href="#__codelineno-20-22">22</a></span>
+<span class="normal"><a href="#__codelineno-20-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">istia.st.servlets.personne</span><span class="p">;</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="p">...</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">&quot;serial&quot;</span><span class="p">)</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ServletPersonne</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">HttpServlet</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="w">    </span><span class="c1">// instance parameters</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">urlErreurs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ArrayList</span><span class="w"> </span><span class="n">erreursInitialisation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">paramètres</span><span class="o">=</span><span class="p">{</span><span class="s">&quot;urlFormulaire&quot;</span><span class="p">,</span><span class="s">&quot;urlReponse&quot;</span><span class="p">};</span>
+<a id="__codelineno-20-10" name="__codelineno-20-10"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="w"> </span><span class="n">params</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-20-11" name="__codelineno-20-11"></a>
+<a id="__codelineno-20-12" name="__codelineno-20-12"></a><span class="p">...</span><span class="w">    </span>
+<a id="__codelineno-20-13" name="__codelineno-20-13"></a><span class="w">    </span><span class="c1">// initial view display</span>
+<a id="__codelineno-20-14" name="__codelineno-20-14"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">doInit</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="p">{</span>
+<a id="__codelineno-20-15" name="__codelineno-20-15"></a><span class="w">        </span><span class="c1">// send the empty form</span>
+<a id="__codelineno-20-16" name="__codelineno-20-16"></a><span class="w">        </span><span class="n">request</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;nom&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">);</span>
+<a id="__codelineno-20-17" name="__codelineno-20-17"></a><span class="w">        </span><span class="n">request</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">);</span>
+<a id="__codelineno-20-18" name="__codelineno-20-18"></a><span class="w">        </span><span class="n">getServletContext</span><span class="p">().</span><span class="na">getRequestDispatcher</span><span class="p">((</span><span class="n">String</span><span class="p">)</span><span class="n">params</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;urlFormulaire&quot;</span><span class="p">)).</span><span class="na">forward</span><span class="p">(</span>
+<a id="__codelineno-20-19" name="__codelineno-20-19"></a><span class="w">                </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">);</span>
+<a id="__codelineno-20-20" name="__codelineno-20-20"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-20-21" name="__codelineno-20-21"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-20-22" name="__codelineno-20-22"></a><span class="p">...</span>
+<a id="__codelineno-20-23" name="__codelineno-20-23"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>第 18-19 行：显示 [form] 视图。回顾一下该视图所期望的模型：
+  </li>
+</ul>
+
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;%</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// on récupère les données du modèle</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  String nom=(String)request.getAttribute(</span><span style="color:#2a00ff">&quot;nom&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  String age=(String)request.getAttribute(</span><span style="color:#2a00ff">&quot;age&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">%&gt;</span></span>
+</code></pre></div>
+
+<ul>
+  <li>第 16-17 行：[form] 视图的 [name, age] 模型被初始化为空字符串。
+  </li>
+</ul>
+
+<h3 id="575-dovalidationform">5.7.5. <span style="color: #4f81bd">[doValidationForm] 方法</span></h3>
+<p>该方法处理请求 #2 [POST /person1/main]，其中提交的参数为 [action, txtName, txtAge]。其代码如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-21-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-21-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-21-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-21-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-21-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-21-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-21-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-21-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-21-10">10</a></span>
+<span class="normal"><a href="#__codelineno-21-11">11</a></span>
+<span class="normal"><a href="#__codelineno-21-12">12</a></span>
+<span class="normal"><a href="#__codelineno-21-13">13</a></span>
+<span class="normal"><a href="#__codelineno-21-14">14</a></span>
+<span class="normal"><a href="#__codelineno-21-15">15</a></span>
+<span class="normal"><a href="#__codelineno-21-16">16</a></span>
+<span class="normal"><a href="#__codelineno-21-17">17</a></span>
+<span class="normal"><a href="#__codelineno-21-18">18</a></span>
+<span class="normal"><a href="#__codelineno-21-19">19</a></span>
+<span class="normal"><a href="#__codelineno-21-20">20</a></span>
+<span class="normal"><a href="#__codelineno-21-21">21</a></span>
+<span class="normal"><a href="#__codelineno-21-22">22</a></span>
+<span class="normal"><a href="#__codelineno-21-23">23</a></span>
+<span class="normal"><a href="#__codelineno-21-24">24</a></span>
+<span class="normal"><a href="#__codelineno-21-25">25</a></span>
+<span class="normal"><a href="#__codelineno-21-26">26</a></span>
+<span class="normal"><a href="#__codelineno-21-27">27</a></span>
+<span class="normal"><a href="#__codelineno-21-28">28</a></span>
+<span class="normal"><a href="#__codelineno-21-29">29</a></span>
+<span class="normal"><a href="#__codelineno-21-30">30</a></span>
+<span class="normal"><a href="#__codelineno-21-31">31</a></span>
+<span class="normal"><a href="#__codelineno-21-32">32</a></span>
+<span class="normal"><a href="#__codelineno-21-33">33</a></span>
+<span class="normal"><a href="#__codelineno-21-34">34</a></span>
+<span class="normal"><a href="#__codelineno-21-35">35</a></span>
+<span class="normal"><a href="#__codelineno-21-36">36</a></span>
+<span class="normal"><a href="#__codelineno-21-37">37</a></span>
+<span class="normal"><a href="#__codelineno-21-38">38</a></span>
+<span class="normal"><a href="#__codelineno-21-39">39</a></span>
+<span class="normal"><a href="#__codelineno-21-40">40</a></span>
+<span class="normal"><a href="#__codelineno-21-41">41</a></span>
+<span class="normal"><a href="#__codelineno-21-42">42</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">istia.st.servlets.personne</span><span class="p">;</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="p">...</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">&quot;serial&quot;</span><span class="p">)</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ServletPersonne</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">HttpServlet</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="w">    </span><span class="c1">// instance parameters</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">urlErreurs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ArrayList</span><span class="w"> </span><span class="n">erreursInitialisation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">paramètres</span><span class="o">=</span><span class="p">{</span><span class="s">&quot;urlFormulaire&quot;</span><span class="p">,</span><span class="s">&quot;urlReponse&quot;</span><span class="p">};</span>
+<a id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="w"> </span><span class="n">params</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="p">...</span>
+<a id="__codelineno-21-12" name="__codelineno-21-12"></a><span class="w">    </span><span class="c1">// form validation</span>
+<a id="__codelineno-21-13" name="__codelineno-21-13"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">doValidationFormulaire</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span>
+<a id="__codelineno-21-14" name="__codelineno-21-14"></a><span class="w">            </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="p">{</span>
+<a id="__codelineno-21-15" name="__codelineno-21-15"></a><span class="w">        </span><span class="c1">// parameters are retrieved</span>
+<a id="__codelineno-21-16" name="__codelineno-21-16"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;txtNom&quot;</span><span class="p">);</span>
+<a id="__codelineno-21-17" name="__codelineno-21-17"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;txtAge&quot;</span><span class="p">);</span>
+<a id="__codelineno-21-18" name="__codelineno-21-18"></a><span class="w">        </span><span class="c1">// parameter verification</span>
+<a id="__codelineno-21-19" name="__codelineno-21-19"></a><span class="w">        </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">erreursAppel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-21-20" name="__codelineno-21-20"></a><span class="w">        </span><span class="c1">// name must be non-empty</span>
+<a id="__codelineno-21-21" name="__codelineno-21-21"></a><span class="w">        </span><span class="n">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nom</span><span class="p">.</span><span class="na">trim</span><span class="p">();</span>
+<a id="__codelineno-21-22" name="__codelineno-21-22"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nom</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">))</span>
+<a id="__codelineno-21-23" name="__codelineno-21-23"></a><span class="w">            </span><span class="n">erreursAppel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;Le champ [nom] n&#39;a pas été rempli&quot;</span><span class="p">);</span>
+<a id="__codelineno-21-24" name="__codelineno-21-24"></a><span class="w">        </span><span class="c1">// age must be an integer &gt;=0</span>
+<a id="__codelineno-21-25" name="__codelineno-21-25"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">age</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">&quot;^\\s*\\d+\\s*$&quot;</span><span class="p">))</span>
+<a id="__codelineno-21-26" name="__codelineno-21-26"></a><span class="w">            </span><span class="n">erreursAppel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;Le champ [age] est erroné&quot;</span><span class="p">);</span>
+<a id="__codelineno-21-27" name="__codelineno-21-27"></a><span class="w">        </span><span class="c1">// errors in the parameters?</span>
+<a id="__codelineno-21-28" name="__codelineno-21-28"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">erreursAppel</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-29" name="__codelineno-21-29"></a><span class="w">            </span><span class="c1">// send error page</span>
+<a id="__codelineno-21-30" name="__codelineno-21-30"></a><span class="w">            </span><span class="n">request</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;erreurs&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">erreursAppel</span><span class="p">);</span>
+<a id="__codelineno-21-31" name="__codelineno-21-31"></a><span class="w">            </span><span class="n">getServletContext</span><span class="p">().</span><span class="na">getRequestDispatcher</span><span class="p">(</span><span class="n">urlErreurs</span><span class="p">).</span><span class="na">forward</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">);</span>
+<a id="__codelineno-21-32" name="__codelineno-21-32"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-21-33" name="__codelineno-21-33"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-21-34" name="__codelineno-21-34"></a><span class="w">        </span><span class="c1">// parameters are correct - send response page</span>
+<a id="__codelineno-21-35" name="__codelineno-21-35"></a><span class="w">        </span><span class="n">request</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;nom&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">nom</span><span class="p">);</span>
+<a id="__codelineno-21-36" name="__codelineno-21-36"></a><span class="w">        </span><span class="n">request</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">);</span>
+<a id="__codelineno-21-37" name="__codelineno-21-37"></a><span class="w">        </span><span class="n">getServletContext</span><span class="p">().</span><span class="na">getRequestDispatcher</span><span class="p">((</span><span class="n">String</span><span class="p">)</span><span class="n">params</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;urlReponse&quot;</span><span class="p">)).</span><span class="na">forward</span><span class="p">(</span><span class="n">request</span><span class="p">,</span>
+<a id="__codelineno-21-38" name="__codelineno-21-38"></a><span class="w">                </span><span class="n">response</span><span class="p">);</span>
+<a id="__codelineno-21-39" name="__codelineno-21-39"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-21-40" name="__codelineno-21-40"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-21-41" name="__codelineno-21-41"></a><span class="p">...</span>
+<a id="__codelineno-21-42" name="__codelineno-21-42"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>第 16-17 行：从客户端请求中获取 &quot;txtNom&quot; 和 &quot;txtAge&quot; 参数的值。
+  </li>
+  <li>第 19-26 行：检查这两个参数的有效性
+  </li>
+  <li>第 28-33 行：如果任一参数不正确，则显示 [errors(callErrors)] 视图。回顾该视图的模板：
+  </li>
+</ul>
+
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;%</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// on récupère les données du modèle</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  ArrayList erreurs=(ArrayList)request.getAttribute(</span><span style="color:#2a00ff">&quot;erreurs&quot;</span><span style="color:#000000">);  </span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">%&gt;</span></span>
+</code></pre></div>
+
+<ul>
+  <li>第 35-38 行：如果检索到的两个参数“txtNom”和“txtAge”具有有效值，则显示 [response(name, age)] 视图。回顾 [response] 视图的模板：
+  </li>
+</ul>
+
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;%</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// on récupère les données du modèle</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  String nom=(String)request.getAttribute(</span><span style="color:#2a00ff">&quot;nom&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  String age=(String)request.getAttribute(</span><span style="color:#2a00ff">&quot;age&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">%&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+</code></pre></div>
+
+<h2 id="58">5.8. <span style="color: #4f81bd">测试</span></h2>
+<p>让我们按照第<a href="#personne-test-accueil"><u><span style="color: #0563c1"> 3.3</span></u></a> 节所述的步骤，将 [mvc-personne-01] 项目添加到 Tomcat 应用程序中：</p>
+<p><img src="images/100000000000012E00000060510581BB.png" width="211" height="67" style="width:5.59cm;height:1.776cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000012E00000060510581BB.png" /></p>
+<p>启动 Tomcat。完成后，我们可以继续进行<a href="#personne1-fonctionnement"><u><span style="color: #0563c1">第 5.1</span></u></a> 节中作为示例展示的测试。我们还可以添加更多测试。例如，我们可以从 <strong>web.xml 中</strong>移除一个 <strong>urlXXX</strong> 配置参数，并观察结果。如下所示，[web.xml] 中已将其中一个参数注释掉：</p>
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">&lt;!-- </span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &lt;init-param&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">              &lt;param-name&gt;urlFormulaire&lt;/param-name&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">              &lt;param-value&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                /WEB-INF/vues/formulaire.jsp</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">              &lt;/param-value&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            &lt;/init-param&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        --&gt;</span></span>
+</code></pre></div>
+
+<p>我们启动或重启 Tomcat，并请求 URL [http://localhost:8080/personne1/main]。我们得到以下响应：</p>
+<p><img src="images/100000000000019F00000097DCFFDAC0.png" width="291" height="106" style="width:7.691cm;height:2.798cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000019F00000097DCFFDAC0.png" /></p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        本教程由 <strong>Serge Tahé</strong> 编写，根据
+<em>知识共享 署名-非商业性使用-
+相同方式共享 3.0 未本地化</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1829 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Java MVC Web开发入门：实用指南">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/zh-java-web-mvc-mai-2006/mvc-web-ingonghengu-person---anen-7.html">
+      
+      
+        <link rel="prev" href="mvc-web-ingonghengu-person---anen-6.html">
+      
+      
+        <link rel="next" href="mvc-web-ingonghengu-person---i-8-an.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>12. MVC Web 应用程序 [person] – 版本 7 - Java MVC Web开发入门：实用指南</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Java MVC Web开发入门：实用指南";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#12-mvc-web-person-7" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Java MVC Web开发入门：实用指南" class="md-header__button md-logo" aria-label="Java MVC Web开发入门：实用指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Java MVC Web开发入门：实用指南
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              12. MVC Web 应用程序 [person] – 版本 7
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/zh-java-web-mvc-mai-2006" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Java MVC Web开发入门：实用指南" class="md-nav__button md-logo" aria-label="Java MVC Web开发入门：实用指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Java MVC Web开发入门：实用指南
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/zh-java-web-mvc-mai-2006" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欢迎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ianie.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="enenhonghiongeongu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 本文中使用的工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-web-aiaihu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Java Web 开发基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvcoing-hiu-onghiiaia.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. MVC（模型–视图–控制器）开发
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvc-web-ingonghengu-person---anen-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. MVC Web 应用程序 [person] – 版本 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvc-web-ingonghengu-person---anen-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. MVC Web 应用程序 [person] – 版本 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvc-web-ingonghengu-person---anen-3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. MVC Web 应用程序 [person] – 版本 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="jstl-iaoianu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. JSTL 标签库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvc-web-ingonghengu-person---i-4-an.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. MVC Web 应用程序 [person] – 第 4 版
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvc-web-ingonghengu-person---anen-5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. MVC Web 应用程序 [person] – 版本 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvc-web-ingonghengu-person---anen-6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. MVC Web 应用程序 [person] – 版本 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. MVC Web 应用程序 [person] – 版本 7
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="mvc-web-ingonghengu-person---anen-7.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. MVC Web 应用程序 [person] – 版本 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1. 简介
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#122-eclipse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2. Eclipse 项目
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#123-personne7-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.3. 配置 [personne7] Web 应用程序
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#124" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4. 视图代码
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.4. 视图代码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1241" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4.1. [表单]视图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1242-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4.2. [response] 视图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1243-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4.3. [errors] 视图
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#125-servletpersonne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.5. [ServletPersonne] 控制器
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#126" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.6. 测试
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvc-web-ingonghengu-person---i-8-an.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. MVC Web 应用程序 [person] – 第 8 版
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anengiaouhonge-mvc-web-ingonghengu---hii-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 三层架构中的 MVC Web 应用程序 – 示例 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="spring-ioc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Spring IoC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anengiaouhonge-mvc-web-ingonghengu----hii-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. 三层架构中的 MVC Web 应用程序——示例 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anengiaouhonge-mvc-web-ingonghengu---hii-3---firebird-huuuuaniiong.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. 三层架构中的 MVC Web 应用程序 – 示例 3 – Firebird 数据库管理系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anengiaouhonge-mvc-web-ingonghengu----hii-4postgres.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. 三层架构中的 MVC Web 应用程序——示例 4，Postgres
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anengiaouhonge-mvc-web-ingonghengu---hii-5mysql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. 三层架构中的 MVC Web 应用程序 – 示例 5，MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anengiaouhonge-mvc-web-ingonghengu---hii-6sql-server-express.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. 三层架构中的 MVC Web 应用程序 – 示例 6，SQL Server Express
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ieun.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. 结论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="enenhongeaia.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. 本文中的代码
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="12-mvc-web-person-7">12. <span style="color: #365f91">MVC Web 应用程序 [person] – 版本 7</span></h1>
+<p><a id="personne3-introduction111"></a></p>
+<h2 id="121">12.1. <span style="color: #4f81bd">简介</span></h2>
+<p>在此版本中，我们假设可能存在禁用了以下功能的客户端浏览器：</p>
+<ol>
+  <li>服务器发送 Cookie
+  </li>
+  <li>执行显示的 HTML 页面中嵌入的 JavaScript 代码
+  </li>
+</ol>
+
+<p>尽管如此，我们仍希望此类浏览器能够使用我们的应用程序。第 2 点将我们带回应用程序的第 2 版，因为 JavaScript 是从第 3 版开始引入的。第 2 版是在不使用 JavaScript 的情况下运行应用程序的，因此第 2 点已得到解决。</p>
+<p>问题1的处理难度因情况而异。我们的应用程序第6版在没有Cookie的情况下也能正常运行。通过合并第2版和第6版，我们便能达到预期效果。我们将增加一项额外限制：应用程序必须管理会话。这并非毫无意义的限制。在需要用户身份验证的应用程序中，服务器必须存储用户的用户名和密码，以避免用户在请求每个页面时都必须重新验证。</p>
+<p>到目前为止，我们在客户端/服务器交互过程中使用了三种解决方案来存储信息： </p>
+<ol>
+  <li>会话
+  </li>
+  <li>Cookie
+  </li>
+  <li>隐藏字段。
+  </li>
+</ol>
+
+<p>方案 2 可以排除，因为客户端浏览器可能已禁用 Cookie。</p>
+<p>方案 3 是第 6 版中的方案，我们之前已经探讨过。出于安全原因，该方案不可行。如果登录名/密码对嵌入到发送给浏览器的每一页中，这意味着它们会在每次客户端与服务器之间的交互中通过网络传输。这对应用程序的安全性不利。 因此，我们可以考虑使用 HTTPS 协议，该协议可对客户端与服务器之间的通信进行加密。然而，若将 HTTPS 应用于应用程序的每一页，将增加服务器的负载。</p>
+<p>您可能需要排除方案 1，因为它同样依赖于 Cookie。在首次客户端-服务器交互中，服务器会向客户端发送一个会话令牌，随后客户端会在每次新请求中将该令牌发回给服务器。借助此令牌，服务器能够识别客户端，并向其提供之前交互中存储的信息。 会话令牌由服务器通过 Cookie 发送。未禁用 Cookie 的浏览器可在后续请求中将该 Cookie 发回给服务器。如果禁用了 Cookie，还有另一种解决方案：浏览器可以在请求的 URL 中包含会话令牌。这就是我们现在重新查看第 4 版中的 [index.jsp] 文件时所看到的：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;%@ <span style="color:#3f7f7f">page </span><span style="color:#7f007f">language</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;java&quot; </span><span style="color:#7f007f">contentType</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;text/html; charset=ISO-8859-1&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#2a00ff">    </span><span style="color:#7f007f">pageEncoding</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;ISO-8859-1&quot;</span><span style="color:#bf5f3f">%&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#bf5f3f">&lt;%@ </span><span style="color:#3f7f7f">taglib </span><span style="color:#7f007f">uri</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;/WEB-INF/c.tld&quot; </span><span style="color:#7f007f">prefix</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;c&quot; </span><span style="color:#bf5f3f">%&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">c:redirect </span><span style="color:#7f007f">url</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;/main&quot;</span><span style="color:#008080">/&gt;</span></span></span>
+</code></pre></div>
+
+<p>请注意，上文第 5 行将客户端重定向至 URL [/personne4/main?jsessionid=XX]，其中 XX 是会话令牌，如下图所示，该截图是在请求 URL [http://localhost:8080/personne4] 后获取的：</p>
+<p><img src="images/10000000000001C900000100E465AB41.png" width="320" height="179" style="width:8.46cm;height:4.74cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001C900000100E465AB41.png" /></p>
+<p>让我们仔细看看 &lt;c:redirect&gt; 标签在会话令牌方面的具体工作原理。我们使用支持 Cookie 的浏览器进行演示。下面，我们将配置 Firefox 浏览器：</p>
+<p><img src="images/100000000000033A000001E591BFB416.png" width="413" height="242" style="width:10.927cm;height:6.415cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000033A000001E591BFB416.png" /></p>
+<p>在 [1] 中，我们启用 Cookie；在 [2] 中，我们删除所有现有 Cookie 以从已知状态开始。随后，我们请求 URL [http://localhost:8080/personne4]。我们收到以下响应：</p>
+<p><img src="images/10000000000001DC000000EA780B084E.png" width="333" height="164" style="width:8.819cm;height:4.336cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001DC000000EA780B084E.png" /></p>
+<p>客户端的初始 HTTP 请求如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span>
+<span class="normal"><a href="#__codelineno-0-7">7</a></span>
+<span class="normal"><a href="#__codelineno-0-8">8</a></span>
+<span class="normal"><a href="#__codelineno-0-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">GET</span> <span class="o">/</span><span class="n">personne4</span><span class="o">/</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">Host</span><span class="p">:</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="p">:</span> <span class="n">Mozilla</span><span class="o">/</span><span class="mf">5.0</span> <span class="p">(</span><span class="n">Windows</span><span class="p">;</span> <span class="n">U</span><span class="p">;</span> <span class="n">Windows</span> <span class="n">NT</span> <span class="mf">5.1</span><span class="p">;</span> <span class="n">fr</span><span class="p">;</span> <span class="n">rv</span><span class="p">:</span><span class="mf">1.8.0.3</span><span class="p">)</span> <span class="n">Gecko</span><span class="o">/</span><span class="mi">20060426</span> <span class="n">Firefox</span><span class="o">/</span><span class="mf">1.5.0.3</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">Accept</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">xml</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xml</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xhtml</span><span class="o">+</span><span class="n">xml</span><span class="p">,</span><span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="n">text</span><span class="o">/</span><span class="n">plain</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">image</span><span class="o">/</span><span class="n">png</span><span class="p">,</span><span class="o">*/*</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.5</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Language</span><span class="p">:</span> <span class="n">fr</span><span class="o">-</span><span class="n">fr</span><span class="p">,</span><span class="n">fr</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">en</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span><span class="n">en</span><span class="o">-</span><span class="n">us</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span><span class="n">de</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.2</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="n">gzip</span><span class="p">,</span><span class="n">deflate</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Charset</span><span class="p">:</span> <span class="n">ISO</span><span class="o">-</span><span class="mi">8859</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span><span class="o">*</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.7</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="n">Keep</span><span class="o">-</span><span class="n">Alive</span><span class="p">:</span> <span class="mi">300</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="n">Connection</span><span class="p">:</span> <span class="n">keep</span><span class="o">-</span><span class="n">alive</span>
+</code></pre></div></td></tr></table></div>
+<p>请注意，客户端不会发送会话 Cookie。服务器发送的 HTTP 响应如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span>
+<span class="normal"><a href="#__codelineno-1-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>HTTP/1.x 302 Déplacé Temporairement
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>Server: Apache-Coyote/1.1
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>Set-Cookie: JSESSIONID=1ACA010A6BA28FB9E30A1D3184F574BC; Path=/personne4
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>Location: http://localhost:8080/personne4/main;jsessionid=1ACA010A6BA28FB9E30A1D3184F574BC
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>Content-Type: text/html;charset=ISO-8859-1
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>Content-Length: 0
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>Date: Tue, 23 May 2006 09:10:05 GMT
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>第 1 行：服务器要求客户端重定向
+  </li>
+  <li>第 3 行：服务器发送了一个与 [JSESSIONID] 属性相关联的会话令牌
+  </li>
+  <li>第 4 行：重定向 URL 包含会话令牌。由于客户端未发送会话 Cookie，因此由 &lt;c:redirect&gt; 标签将其放置于此。
+  </li>
+</ul>
+
+<p>被要求重定向的浏览器随后发出了以下请求：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">GET</span> <span class="o">/</span><span class="n">personne4</span><span class="o">/</span><span class="n">main</span><span class="p">;</span><span class="n">jsessionid</span><span class="o">=</span><span class="mi">1</span><span class="n">ACA010A6BA28FB9E30A1D3184F574BC</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">Host</span><span class="p">:</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="p">:</span> <span class="n">Mozilla</span><span class="o">/</span><span class="mf">5.0</span> <span class="p">(</span><span class="n">Windows</span><span class="p">;</span> <span class="n">U</span><span class="p">;</span> <span class="n">Windows</span> <span class="n">NT</span> <span class="mf">5.1</span><span class="p">;</span> <span class="n">fr</span><span class="p">;</span> <span class="n">rv</span><span class="p">:</span><span class="mf">1.8.0.3</span><span class="p">)</span> <span class="n">Gecko</span><span class="o">/</span><span class="mi">20060426</span> <span class="n">Firefox</span><span class="o">/</span><span class="mf">1.5.0.3</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">Accept</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">xml</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xml</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xhtml</span><span class="o">+</span><span class="n">xml</span><span class="p">,</span><span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="n">text</span><span class="o">/</span><span class="n">plain</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">image</span><span class="o">/</span><span class="n">png</span><span class="p">,</span><span class="o">*/*</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.5</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Language</span><span class="p">:</span> <span class="n">fr</span><span class="o">-</span><span class="n">fr</span><span class="p">,</span><span class="n">fr</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">en</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span><span class="n">en</span><span class="o">-</span><span class="n">us</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span><span class="n">de</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.2</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="n">gzip</span><span class="p">,</span><span class="n">deflate</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Charset</span><span class="p">:</span> <span class="n">ISO</span><span class="o">-</span><span class="mi">8859</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span><span class="o">*</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.7</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="n">Keep</span><span class="o">-</span><span class="n">Alive</span><span class="p">:</span> <span class="mi">300</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="n">Connection</span><span class="p">:</span> <span class="n">keep</span><span class="o">-</span><span class="n">alive</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="n">Cookie</span><span class="p">:</span> <span class="n">JSESSIONID</span><span class="o">=</span><span class="mi">1</span><span class="n">ACA010A6BA28FB9E30A1D3184F574BC</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>第 1 行：它请求重定向 URL，其中包含会话令牌。这就是为什么浏览器在截图中显示此 URL 的原因。
+  </li>
+  <li>第 10 行：浏览器将服务器在上一次交互中发送给它的会话令牌发回。当客户端浏览器启用了 Cookie 功能时，Cookie 通常就是这样工作的。如果未启用 Cookie，则不会将接收到的 Cookie 发回。
+  </li>
+</ul>
+
+<p>服务器对这一第二次请求作出了如下响应：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>HTTP/1.x 200 OK
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>Server: Apache-Coyote/1.1
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>Content-Type: text/html;charset=ISO-8859-1
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>Content-Length: 2376
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>Date: Tue, 23 May 2006 09:10:05 GMT
+</code></pre></div></td></tr></table></div>
+<p>它找到了请求的页面并正在发送。请注意，它不再发送会话令牌。会话令牌通常的工作原理是：服务器以cookie的形式将其发送给浏览器一次，然后浏览器在每次请求时将其发回以供识别。</p>
+<p>现在，使用同一浏览器，让我们通过手动输入 URL [http://localhost:8080/personne4] 再次进行请求。随后我们将看到以下页面：</p>
+<p><img src="images/10000000000001B7000000EA876CF963.png" width="307" height="164" style="width:8.13cm;height:4.334cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001B7000000EA876CF963.png" /></p>
+<p>我们可以看到，浏览器显示的 URL 中不再包含会话令牌。让我们看看第一次客户端/服务器交互：</p>
+<p>浏览器发出了以下请求：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">GET</span> <span class="o">/</span><span class="n">personne4</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">Host</span><span class="p">:</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="p">:</span> <span class="n">Mozilla</span><span class="o">/</span><span class="mf">5.0</span> <span class="p">(</span><span class="n">Windows</span><span class="p">;</span> <span class="n">U</span><span class="p">;</span> <span class="n">Windows</span> <span class="n">NT</span> <span class="mf">5.1</span><span class="p">;</span> <span class="n">fr</span><span class="p">;</span> <span class="n">rv</span><span class="p">:</span><span class="mf">1.8.0.3</span><span class="p">)</span> <span class="n">Gecko</span><span class="o">/</span><span class="mi">20060426</span> <span class="n">Firefox</span><span class="o">/</span><span class="mf">1.5.0.3</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">Accept</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">xml</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xml</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xhtml</span><span class="o">+</span><span class="n">xml</span><span class="p">,</span><span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="n">text</span><span class="o">/</span><span class="n">plain</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">image</span><span class="o">/</span><span class="n">png</span><span class="p">,</span><span class="o">*/*</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.5</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Language</span><span class="p">:</span> <span class="n">fr</span><span class="o">-</span><span class="n">fr</span><span class="p">,</span><span class="n">fr</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">en</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span><span class="n">en</span><span class="o">-</span><span class="n">us</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span><span class="n">de</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.2</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="n">gzip</span><span class="p">,</span><span class="n">deflate</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Charset</span><span class="p">:</span> <span class="n">ISO</span><span class="o">-</span><span class="mi">8859</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span><span class="o">*</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.7</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="n">Keep</span><span class="o">-</span><span class="n">Alive</span><span class="p">:</span> <span class="mi">300</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="n">Connection</span><span class="p">:</span> <span class="n">keep</span><span class="o">-</span><span class="n">alive</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="n">Cookie</span><span class="p">:</span> <span class="n">JSESSIONID</span><span class="o">=</span><span class="mi">1</span><span class="n">ACA010A6BA28FB9E30A1D3184F574BC</span>
+</code></pre></div></td></tr></table></div>
+<p>这与上一个请求完全相同，只有一个区别：在第 10 行，浏览器回传了它在最初一次交互中收到的会话令牌。同样，如果浏览器的 Cookie 功能已启用，这是正常的行为。</p>
+<p>服务器返回了以下响应：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>HTTP/1.x 302 Déplacé Temporairement
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>Server: Apache-Coyote/1.1
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>Location: http://localhost:8080/personne4/
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>Transfer-Encoding: chunked
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>Date: Tue, 23 May 2006 09:24:39 GMT
+</code></pre></div></td></tr></table></div>
+<p>它指示客户端进行重定向。由于它从客户端接收到了会话令牌，因此会继续当前会话，而不会发送新的会话令牌。出于同样的原因，&lt;c:redirect&gt; 标签不会将会话令牌包含在重定向 URL 中。这就是为什么上图截图中显示的 URL 不包含会话令牌。</p>
+<p>从以上内容中得出的关键要点是以下规则：只有当客户端未发送 HTTP 头时，&lt;c:redirect&gt; 标签才会将会话令牌包含在重定向 URL 中： </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Cookie: JSESSIONID=1ACA010A6BA28FB9E30A1D3184F574BC
+</code></pre></div>
+<p>这条规则也适用于 &lt;c:url&gt; 标签，我们稍后会遇到它。</p>
+<p>如果浏览器禁用了 Cookie，会发生什么情况？让我们试一试。首先，我们重置浏览器：</p>
+<p><img src="images/1000000000000318000001327098B904.png" width="396" height="153" style="width:10.478cm;height:4.048cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000318000001327098B904.png" /></p>
+<p>在 [1] 中，我们禁用 Cookie；在 [2] 中，我们删除所有现有 Cookie，以便从已知状态开始。然后，我们请求 URL [http://localhost:8080/personne4]。我们得到以下响应：</p>
+<p><img src="images/10000000000001DB000000EA884B8A2A.png" width="333" height="164" style="width:8.8cm;height:4.336cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001DB000000EA884B8A2A.png" /></p>
+<p>结果与之前相同。不过，HTTP 交互过程并非完全一致：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span>
+<span class="normal"><a href="#__codelineno-7-18">18</a></span>
+<span class="normal"><a href="#__codelineno-7-19">19</a></span>
+<span class="normal"><a href="#__codelineno-7-20">20</a></span>
+<span class="normal"><a href="#__codelineno-7-21">21</a></span>
+<span class="normal"><a href="#__codelineno-7-22">22</a></span>
+<span class="normal"><a href="#__codelineno-7-23">23</a></span>
+<span class="normal"><a href="#__codelineno-7-24">24</a></span>
+<span class="normal"><a href="#__codelineno-7-25">25</a></span>
+<span class="normal"><a href="#__codelineno-7-26">26</a></span>
+<span class="normal"><a href="#__codelineno-7-27">27</a></span>
+<span class="normal"><a href="#__codelineno-7-28">28</a></span>
+<span class="normal"><a href="#__codelineno-7-29">29</a></span>
+<span class="normal"><a href="#__codelineno-7-30">30</a></span>
+<span class="normal"><a href="#__codelineno-7-31">31</a></span>
+<span class="normal"><a href="#__codelineno-7-32">32</a></span>
+<span class="normal"><a href="#__codelineno-7-33">33</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">GET</span> <span class="o">/</span><span class="n">personne4</span><span class="o">/</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">Host</span><span class="p">:</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="p">:</span> <span class="n">Mozilla</span><span class="o">/</span><span class="mf">5.0</span> <span class="p">(</span><span class="n">Windows</span><span class="p">;</span> <span class="n">U</span><span class="p">;</span> <span class="n">Windows</span> <span class="n">NT</span> <span class="mf">5.1</span><span class="p">;</span> <span class="n">fr</span><span class="p">;</span> <span class="n">rv</span><span class="p">:</span><span class="mf">1.8.0.3</span><span class="p">)</span> <span class="n">Gecko</span><span class="o">/</span><span class="mi">20060426</span> <span class="n">Firefox</span><span class="o">/</span><span class="mf">1.5.0.3</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="n">Accept</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">xml</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xml</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xhtml</span><span class="o">+</span><span class="n">xml</span><span class="p">,</span><span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="n">text</span><span class="o">/</span><span class="n">plain</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">image</span><span class="o">/</span><span class="n">png</span><span class="p">,</span><span class="o">*/*</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.5</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Language</span><span class="p">:</span> <span class="n">fr</span><span class="o">-</span><span class="n">fr</span><span class="p">,</span><span class="n">fr</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">en</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span><span class="n">en</span><span class="o">-</span><span class="n">us</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span><span class="n">de</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.2</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="n">gzip</span><span class="p">,</span><span class="n">deflate</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Charset</span><span class="p">:</span> <span class="n">ISO</span><span class="o">-</span><span class="mi">8859</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span><span class="o">*</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.7</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="n">Keep</span><span class="o">-</span><span class="n">Alive</span><span class="p">:</span> <span class="mi">300</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="n">Connection</span><span class="p">:</span> <span class="n">keep</span><span class="o">-</span><span class="n">alive</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.</span><span class="n">x</span> <span class="mi">302</span> <span class="n">Déplacé</span> <span class="n">Temporairement</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="n">Server</span><span class="p">:</span> <span class="n">Apache</span><span class="o">-</span><span class="n">Coyote</span><span class="o">/</span><span class="mf">1.1</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="n">Set</span><span class="o">-</span><span class="n">Cookie</span><span class="p">:</span> <span class="n">JSESSIONID</span><span class="o">=</span><span class="mi">911</span><span class="n">B8156E0A9D32C2D256020C898E05C</span><span class="p">;</span> <span class="n">Path</span><span class="o">=/</span><span class="n">personne4</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="n">Location</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">personne4</span><span class="o">/</span><span class="n">main</span><span class="p">;</span><span class="n">jsessionid</span><span class="o">=</span><span class="mi">911</span><span class="n">B8156E0A9D32C2D256020C898E05C</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">;</span><span class="n">charset</span><span class="o">=</span><span class="n">ISO</span><span class="o">-</span><span class="mi">8859</span><span class="o">-</span><span class="mi">1</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="p">:</span> <span class="mi">0</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="n">Date</span><span class="p">:</span> <span class="n">Tue</span><span class="p">,</span> <span class="mi">23</span> <span class="n">May</span> <span class="mi">2006</span> <span class="mi">09</span><span class="p">:</span><span class="mi">39</span><span class="p">:</span><span class="mi">55</span> <span class="n">GMT</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a>
+<a id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="n">GET</span> <span class="o">/</span><span class="n">personne4</span><span class="o">/</span><span class="n">main</span><span class="p">;</span><span class="n">jsessionid</span><span class="o">=</span><span class="mi">911</span><span class="n">B8156E0A9D32C2D256020C898E05C</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="n">Host</span><span class="p">:</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21"></a><span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="p">:</span> <span class="n">Mozilla</span><span class="o">/</span><span class="mf">5.0</span> <span class="p">(</span><span class="n">Windows</span><span class="p">;</span> <span class="n">U</span><span class="p">;</span> <span class="n">Windows</span> <span class="n">NT</span> <span class="mf">5.1</span><span class="p">;</span> <span class="n">fr</span><span class="p">;</span> <span class="n">rv</span><span class="p">:</span><span class="mf">1.8.0.3</span><span class="p">)</span> <span class="n">Gecko</span><span class="o">/</span><span class="mi">20060426</span> <span class="n">Firefox</span><span class="o">/</span><span class="mf">1.5.0.3</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22"></a><span class="n">Accept</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">xml</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xml</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xhtml</span><span class="o">+</span><span class="n">xml</span><span class="p">,</span><span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="n">text</span><span class="o">/</span><span class="n">plain</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">image</span><span class="o">/</span><span class="n">png</span><span class="p">,</span><span class="o">*/*</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.5</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Language</span><span class="p">:</span> <span class="n">fr</span><span class="o">-</span><span class="n">fr</span><span class="p">,</span><span class="n">fr</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">en</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span><span class="n">en</span><span class="o">-</span><span class="n">us</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span><span class="n">de</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.2</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="n">gzip</span><span class="p">,</span><span class="n">deflate</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Charset</span><span class="p">:</span> <span class="n">ISO</span><span class="o">-</span><span class="mi">8859</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span><span class="o">*</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.7</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26"></a><span class="n">Keep</span><span class="o">-</span><span class="n">Alive</span><span class="p">:</span> <span class="mi">300</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27"></a><span class="n">Connection</span><span class="p">:</span> <span class="n">keep</span><span class="o">-</span><span class="n">alive</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28"></a>
+<a id="__codelineno-7-29" name="__codelineno-7-29"></a><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.</span><span class="n">x</span> <span class="mi">200</span> <span class="n">OK</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30"></a><span class="n">Server</span><span class="p">:</span> <span class="n">Apache</span><span class="o">-</span><span class="n">Coyote</span><span class="o">/</span><span class="mf">1.1</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31"></a><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">;</span><span class="n">charset</span><span class="o">=</span><span class="n">ISO</span><span class="o">-</span><span class="mi">8859</span><span class="o">-</span><span class="mi">1</span>
+<a id="__codelineno-7-32" name="__codelineno-7-32"></a><span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="p">:</span> <span class="mi">2376</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33"></a><span class="n">Date</span><span class="p">:</span> <span class="n">Tue</span><span class="p">,</span> <span class="mi">23</span> <span class="n">May</span> <span class="mi">2006</span> <span class="mi">09</span><span class="p">:</span><span class="mi">39</span><span class="p">:</span><span class="mi">55</span> <span class="n">GMT</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>第 1–9 行：浏览器的首次请求。它未发送会话 Cookie。
+  </li>
+  <li>第 11–17 行：服务器的响应，指示浏览器重定向到另一个 URL。它发送了一个会话 Cookie。第 13 行：&lt;c:redirect&gt; 标签已将令牌包含在第 14 行的重定向 URL 中。
+  </li>
+  <li>第 19–27 行：浏览器的第二次请求。由于其 Cookie 功能已禁用，因此未回传服务器刚刚发送的会话 Cookie。
+  </li>
+  <li>第 29–33 行：服务器的响应。 我们可以看到，尽管浏览器未发送会话 Cookie，但服务器并未如预期那样启动新会话。这一点从服务器未像第 13 行那样发送 [Set-Cookie] HTTP 头中可以明显看出。这意味着它延续了之前的会话。它之所以能检索到该会话，是因为第 19 行中浏览器请求的 URL 中包含了会话令牌。
+  </li>
+</ul>
+
+<p>请注意，服务器通过两种可能的方式检索客户端发送的会话令牌来跟踪会话：</p>
+<ul>
+  <li>通过客户端发送的 [Set-Cookie] HTTP 头
+  </li>
+  <li>客户端请求的 URL 中
+  </li>
+</ul>
+
+<p>现在，使用同一浏览器，让我们像启用 Cookie 时那样，通过手动输入 URL [http://localhost:8080/personne4] 再次进行请求。随后我们将看到以下页面：</p>
+<p><img src="images/10000000000001DD000000E82DD0E474.png" width="334" height="162" style="width:8.83cm;height:4.295cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001DD000000E82DD0E474.png" /></p>
+<p>该结果与启用 Cookie 时所见不同：会话令牌出现在浏览器显示的 URL 中。让我们在不分析实际发生的 HTTP 交互的情况下解释这一结果：</p>
+<p><strong>[启用 Cookie]</strong></p>
+<ul>
+  <li>在第二次请求 URL [http://localhost:8080/personne4] 时，客户端浏览器回传了它在第一次请求该 URL 时从服务器接收到的会话 Cookie。因此，&lt;c:redirect&gt; 标签没有将会话令牌包含在重定向地址中。
+  </li>
+</ul>
+
+<p><strong>[已禁用Cookie]</strong></p>
+<ul>
+  <li>在第二次请求 URL [http://localhost:8080/personne4] 时，由于客户端浏览器已禁用 Cookie，因此不会发送在第一次请求该 URL 时从服务器接收的会话 Cookie。因此，&lt;c:redirect&gt; 标签会在重定向 URL 中包含会话令牌。这就是它出现在上图截图中的原因。
+  </li>
+</ul>
+
+<p><strong>&lt;c:redirect&gt;</strong> 和 <strong>&lt;c:url&gt;</strong> 标签允许您在 URL 中包含会话令牌。这就是本文提出的解决方案。</p>
+<h2 id="122-eclipse">12.2. <span style="color: #4f81bd">Eclipse 项目</span></h2>
+<p>要为 Web 应用程序 [/personne7] 创建 Eclipse 项目 [mvc-personne-07]，请按照第<a href="#personne2-eclipse"><u><span style="color: #0563c1"> 6.2</span></u></a> 节所述的步骤复制项目 [mvc-personne-06]。</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000E200000170B908DED8.png" width="158" height="258" style="display:inline-block; margin:4px;width:4.189cm;height:6.821cm;" class="odt-zoomable" data-zoom-src="images/10000000000000E200000170B908DED8.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000012F0000005D4DF8005A.png" width="211" height="65" style="display:inline-block; margin:4px;width:5.59cm;height:1.716cm;" class="odt-zoomable" data-zoom-src="images/100000000000012F0000005D4DF8005A.png" /></td></tr></table>
+
+<h2 id="123-personne7-web">12.3. <span style="color: #4f81bd">配置 [personne7] Web 应用程序</span></h2>
+<p><strong>/personne7</strong> 应用程序的 <strong>web.xml</strong> 文件如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-xml">
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;?<span style="color:#3f7f7f">xml </span><span style="color:#7f007f">version</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;1.0&quot; </span><span style="color:#7f007f">encoding</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;UTF-8&quot;</span>?&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">display-name</span><span style="color:#008080">&gt;</span><span style="color:#000000">mvc-personne-07</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">display-name</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+</code></pre></div>
+
+<p>除第 3 行外，此文件与上一版本完全相同，该行中 Web 应用程序的显示名称已更改为 [mvc-personne-07]。主页 [index.jsp] 保持不变。</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">c:redirect </span><span style="color:#7f007f">url</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;/do/formulaire&quot;</span><span style="color:#008080">/&gt;</span></span></span>
+</code></pre></div>
+
+<h2 id="124">12.4. <span style="color: #4f81bd">视图代码</span></h2>
+<p>视图 [表单、响应、错误] 恢复到了第 2 版时的状态，即不包含 JavaScript。不过，它们保留了最新版本中的 JSTL 标签。</p>
+<h3 id="1241">12.4.1. <span style="color: #4f81bd">[表单]视图</span></h3>
+<p><img src="images/100000000000014E000000EBEA15BD02.png" width="234" height="165" style="width:6.189cm;height:4.355cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000014E000000EBEA15BD02.png" /></p>
+<p>与 JavaScript 代码相关的按钮已被移除。</p>
+<p>[form.jsp]：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#bf5f3f">&lt;%@ </span><span style="color:#3f7f7f">page </span><span style="color:#7f007f">language</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;java&quot; </span><span style="color:#7f007f">contentType</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;text/html; charset=ISO-8859-1&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#2a00ff">  </span><span style="color:#7f007f">pageEncoding</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;ISO-8859-1&quot;</span><span style="color:#bf5f3f">%&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;!</span><span style="color:#3f7f7f">DOCTYPE </span><span style="color:#000080">HTML </span><span style="color:#808080">PUBLIC </span><span style="color:#000080">&quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#bf5f3f">&lt;%@ </span><span style="color:#3f7f7f">taglib </span><span style="color:#7f007f">uri</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;/WEB-INF/c.tld&quot; </span><span style="color:#7f007f">prefix</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;c&quot; </span><span style="color:#bf5f3f">%&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">html</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">head</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">title</span><span style="color:#008080">&gt;</span><span style="color:#000000">Personne - formulaire</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">title</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">head</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">body</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">center</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">h2</span><span style="color:#008080">&gt;</span><span style="color:#000000">Personne - formulaire</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">h2</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">hr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">form </span><span style="color:#7f007f">name</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;frmPersonne&quot; </span><span style="color:#7f007f">action</span><span style="color:#000000">=</span>&quot;<span style="color:#008080">&lt;</span><span style="color:#3f7f7f">c:url</span><span style="color:#000000"> </span><span style="color:#7f007f">value</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;validationFormulaire&quot;</span><span style="color:#008080">/&gt;</span>&quot;<span style="color:#000000"> </span><span style="color:#7f007f">method</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;post&quot;</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">table</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">tr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span><span style="color:#000000">Nom</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;&lt;</span><span style="color:#3f7f7f">input </span><span style="color:#7f007f">name</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;txtNom&quot; </span><span style="color:#7f007f">value</span><span style="color:#000000">=</span>&quot;<span style="color:#000000">${nom}</span>&quot;<span style="color:#000000"> </span><span style="color:#7f007f">type</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;text&quot; </span><span style="color:#7f007f">size</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;20&quot;</span><span style="color:#008080">&gt;&lt;/</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">tr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">tr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span><span style="color:#000000">Age</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;&lt;</span><span style="color:#3f7f7f">input </span><span style="color:#7f007f">name</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;txtAge&quot; </span><span style="color:#7f007f">value</span><span style="color:#000000">=</span>&quot;<span style="color:#000000">${age}</span>&quot;<span style="color:#000000"> </span><span style="color:#7f007f">type</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;text&quot; </span><span style="color:#7f007f">size</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;3&quot;</span><span style="color:#008080">&gt;&lt;/</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">tr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">tr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">table</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">table</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">tr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;&lt;</span><span style="color:#3f7f7f">input </span><span style="color:#7f007f">type</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;submit&quot; </span><span style="color:#7f007f">name</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;bouton&quot; </span><span style="color:#7f007f">value</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;Envoyer&quot;</span><span style="color:#008080">&gt;&lt;/</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;&lt;</span><span style="color:#3f7f7f">input </span><span style="color:#7f007f">type</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;reset&quot; </span><span style="color:#7f007f">value</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;Rétablir&quot;</span><span style="color:#008080">&gt;&lt;/</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;&lt;</span><span style="color:#3f7f7f">input </span><span style="color:#7f007f">type</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;submit&quot; </span><span style="color:#7f007f">name</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;bouton&quot; </span><span style="color:#7f007f">value</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;Effacer&quot;</span><span style="color:#008080">&gt;&lt;/</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">tr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">table</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">form</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">center</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">body</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">html</span><span style="color:#008080">&gt;</span></span></span>
+</code></pre></div>
+
+<ul>
+  <li>第 14 行：POST 目标 URL 使用 &lt;c:url&gt; 标签编写，以便在客户端是不会发送 [Cookie] HTTP 头信息的浏览器时，也能包含会话令牌。
+  </li>
+  <li>表单包含两个 [submit] 按钮：[Submit]（第 28 行）和 [Clear]（第 30 行）。这两个按钮的名称相同：<i>button</i>。当触发 POST 请求时，浏览器将发送以下参数：
+  </li>
+  <li>若由 [Submit] 按钮触发 POST 请求，则发送参数：<i>button=Submit</i>
+  </li>
+  <li>若由 [Clear] 按钮触发 POST 请求，则发送参数：<i>button=Clear</i>
+  </li>
+</ul>
+
+<p>该参数将帮助我们确定应采取的具体操作，因为 URL [/do/validationFormulaire] 现在对应于两个不同的操作。</p>
+<h3 id="1242-response">12.4.2. <span style="color: #4f81bd">[response] 视图</span></h3>
+<p><img src="images/10000000000000FC000000DF7959044F.png" width="177" height="156" style="width:4.671cm;height:4.133cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000FC000000DF7959044F.png" /></p>
+<p>[response.jsp]：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#bf5f3f">&lt;%@ </span><span style="color:#3f7f7f">page </span><span style="color:#7f007f">language</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;java&quot; </span><span style="color:#7f007f">contentType</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;text/html; charset=ISO-8859-1&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#2a00ff">    </span><span style="color:#7f007f">pageEncoding</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;ISO-8859-1&quot;</span><span style="color:#bf5f3f">%&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;!</span><span style="color:#3f7f7f">DOCTYPE </span><span style="color:#000080">HTML </span><span style="color:#808080">PUBLIC </span><span style="color:#000080">&quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#bf5f3f">&lt;%@ </span><span style="color:#3f7f7f">taglib </span><span style="color:#7f007f">uri</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;/WEB-INF/c.tld&quot; </span><span style="color:#7f007f">prefix</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;c&quot; </span><span style="color:#bf5f3f">%&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">html</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">head</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">title</span><span style="color:#008080">&gt;</span><span style="color:#000000">Personne</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">title</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">head</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">body</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">h2</span><span style="color:#008080">&gt;</span><span style="color:#000000">Personne - réponse</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">h2</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">hr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">table</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">tr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span><span style="color:#000000">Nom</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span><span style="color:#000000">${nom}</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">tr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">tr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span><span style="color:#000000">Age</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span><span style="color:#000000">${age}</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">td</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">tr</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">table</span><span style="color:#008080">&gt;</span><span style="color:#000000">      </span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">br</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">a </span><span style="color:#7f007f">href</span><span style="color:#000000">=</span>&quot;<span style="color:#008080">&lt;</span><span style="color:#3f7f7f">c:url</span><span style="color:#000000"> </span><span style="color:#7f007f">value</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;retourFormulaire&quot;</span><span style="color:#008080">/&gt;</span>&quot;<span style="color:#008080">&gt;</span><span style="color:#000000">${lienRetourFormulaire}</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">a</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">body</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">html</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+</code></pre></div>
+
+<ul>
+  <li>第 24 行：HREF 的目标 URL 使用 &lt;c:url&gt; 标签编写，以便在客户端是不会发送 [Cookie] HTTP 头信息的浏览器时，也能包含会话令牌。
+  </li>
+</ul>
+
+<h3 id="1243-errors">12.4.3. <span style="color: #4f81bd">[errors] 视图</span></h3>
+<p><img src="images/100000000000020C000000CF2FE8287F.png" width="367" height="145" style="width:9.7cm;height:3.831cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000020C000000CF2FE8287F.png" /></p>
+<p>[errors.jsp]：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#bf5f3f">&lt;%@ </span><span style="color:#3f7f7f">page </span><span style="color:#7f007f">language</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;java&quot; </span><span style="color:#7f007f">contentType</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;text/html; charset=ISO-8859-1&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#2a00ff">    </span><span style="color:#7f007f">pageEncoding</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;ISO-8859-1&quot;</span><span style="color:#bf5f3f">%&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;!</span><span style="color:#3f7f7f">DOCTYPE </span><span style="color:#000080">HTML </span><span style="color:#808080">PUBLIC </span><span style="color:#000080">&quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#bf5f3f">&lt;%@ </span><span style="color:#3f7f7f">taglib </span><span style="color:#7f007f">uri</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;/WEB-INF/c.tld&quot; </span><span style="color:#7f007f">prefix</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;c&quot; </span><span style="color:#bf5f3f">%&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">html</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">head</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">title</span><span style="color:#008080">&gt;</span><span style="color:#000000">Personne</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">title</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">head</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">body</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">h2</span><span style="color:#008080">&gt;</span><span style="color:#000000">Les erreurs suivantes se sont produites</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">h2</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">ul</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">c:forEach </span><span style="color:#7f007f">var</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;erreur&quot; </span><span style="color:#7f007f">items</span><span style="color:#000000">=</span>&quot;<span style="color:#000000">${erreurs}</span>&quot;<span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">li</span><span style="color:#008080">&gt;</span><span style="color:#000000">${erreur}</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">li</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">c:forEach</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">ul</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">br</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">a </span><span style="color:#7f007f">href</span><span style="color:#000000">=</span>&quot;<span style="color:#008080">&lt;</span><span style="color:#3f7f7f">c:url</span><span style="color:#000000"> </span><span style="color:#7f007f">value</span><span style="color:#000000">=</span><span style="color:#2a00ff">&quot;retourFormulaire&quot;</span><span style="color:#008080">/&gt;</span>&quot;<span style="color:#008080">&gt;</span><span style="color:#000000">${lienRetourFormulaire}</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">a</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">body</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">html</span><span style="color:#008080">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+</code></pre></div>
+
+<ul>
+  <li>第 18 行：HREF 目标 URL 使用 &lt;c:url&gt; 标签编写，以便在客户端是不会发送 [Cookie] HTTP 头信息的浏览器时，也能包含会话令牌。
+  </li>
+</ul>
+
+<p>欢迎读者采用与之前版本相同的方法测试这些新视图。</p>
+<h2 id="125-servletpersonne">12.5. <span style="color: #4f81bd">[ServletPersonne] 控制器</span></h2>
+<p>[/personne7] Web 应用程序的 [ServletPersonne] 控制器如下： </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">  1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">  2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">  3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">  4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">  5</a></span>
+<span class="normal"><a href="#__codelineno-8-6">  6</a></span>
+<span class="normal"><a href="#__codelineno-8-7">  7</a></span>
+<span class="normal"><a href="#__codelineno-8-8">  8</a></span>
+<span class="normal"><a href="#__codelineno-8-9">  9</a></span>
+<span class="normal"><a href="#__codelineno-8-10"> 10</a></span>
+<span class="normal"><a href="#__codelineno-8-11"> 11</a></span>
+<span class="normal"><a href="#__codelineno-8-12"> 12</a></span>
+<span class="normal"><a href="#__codelineno-8-13"> 13</a></span>
+<span class="normal"><a href="#__codelineno-8-14"> 14</a></span>
+<span class="normal"><a href="#__codelineno-8-15"> 15</a></span>
+<span class="normal"><a href="#__codelineno-8-16"> 16</a></span>
+<span class="normal"><a href="#__codelineno-8-17"> 17</a></span>
+<span class="normal"><a href="#__codelineno-8-18"> 18</a></span>
+<span class="normal"><a href="#__codelineno-8-19"> 19</a></span>
+<span class="normal"><a href="#__codelineno-8-20"> 20</a></span>
+<span class="normal"><a href="#__codelineno-8-21"> 21</a></span>
+<span class="normal"><a href="#__codelineno-8-22"> 22</a></span>
+<span class="normal"><a href="#__codelineno-8-23"> 23</a></span>
+<span class="normal"><a href="#__codelineno-8-24"> 24</a></span>
+<span class="normal"><a href="#__codelineno-8-25"> 25</a></span>
+<span class="normal"><a href="#__codelineno-8-26"> 26</a></span>
+<span class="normal"><a href="#__codelineno-8-27"> 27</a></span>
+<span class="normal"><a href="#__codelineno-8-28"> 28</a></span>
+<span class="normal"><a href="#__codelineno-8-29"> 29</a></span>
+<span class="normal"><a href="#__codelineno-8-30"> 30</a></span>
+<span class="normal"><a href="#__codelineno-8-31"> 31</a></span>
+<span class="normal"><a href="#__codelineno-8-32"> 32</a></span>
+<span class="normal"><a href="#__codelineno-8-33"> 33</a></span>
+<span class="normal"><a href="#__codelineno-8-34"> 34</a></span>
+<span class="normal"><a href="#__codelineno-8-35"> 35</a></span>
+<span class="normal"><a href="#__codelineno-8-36"> 36</a></span>
+<span class="normal"><a href="#__codelineno-8-37"> 37</a></span>
+<span class="normal"><a href="#__codelineno-8-38"> 38</a></span>
+<span class="normal"><a href="#__codelineno-8-39"> 39</a></span>
+<span class="normal"><a href="#__codelineno-8-40"> 40</a></span>
+<span class="normal"><a href="#__codelineno-8-41"> 41</a></span>
+<span class="normal"><a href="#__codelineno-8-42"> 42</a></span>
+<span class="normal"><a href="#__codelineno-8-43"> 43</a></span>
+<span class="normal"><a href="#__codelineno-8-44"> 44</a></span>
+<span class="normal"><a href="#__codelineno-8-45"> 45</a></span>
+<span class="normal"><a href="#__codelineno-8-46"> 46</a></span>
+<span class="normal"><a href="#__codelineno-8-47"> 47</a></span>
+<span class="normal"><a href="#__codelineno-8-48"> 48</a></span>
+<span class="normal"><a href="#__codelineno-8-49"> 49</a></span>
+<span class="normal"><a href="#__codelineno-8-50"> 50</a></span>
+<span class="normal"><a href="#__codelineno-8-51"> 51</a></span>
+<span class="normal"><a href="#__codelineno-8-52"> 52</a></span>
+<span class="normal"><a href="#__codelineno-8-53"> 53</a></span>
+<span class="normal"><a href="#__codelineno-8-54"> 54</a></span>
+<span class="normal"><a href="#__codelineno-8-55"> 55</a></span>
+<span class="normal"><a href="#__codelineno-8-56"> 56</a></span>
+<span class="normal"><a href="#__codelineno-8-57"> 57</a></span>
+<span class="normal"><a href="#__codelineno-8-58"> 58</a></span>
+<span class="normal"><a href="#__codelineno-8-59"> 59</a></span>
+<span class="normal"><a href="#__codelineno-8-60"> 60</a></span>
+<span class="normal"><a href="#__codelineno-8-61"> 61</a></span>
+<span class="normal"><a href="#__codelineno-8-62"> 62</a></span>
+<span class="normal"><a href="#__codelineno-8-63"> 63</a></span>
+<span class="normal"><a href="#__codelineno-8-64"> 64</a></span>
+<span class="normal"><a href="#__codelineno-8-65"> 65</a></span>
+<span class="normal"><a href="#__codelineno-8-66"> 66</a></span>
+<span class="normal"><a href="#__codelineno-8-67"> 67</a></span>
+<span class="normal"><a href="#__codelineno-8-68"> 68</a></span>
+<span class="normal"><a href="#__codelineno-8-69"> 69</a></span>
+<span class="normal"><a href="#__codelineno-8-70"> 70</a></span>
+<span class="normal"><a href="#__codelineno-8-71"> 71</a></span>
+<span class="normal"><a href="#__codelineno-8-72"> 72</a></span>
+<span class="normal"><a href="#__codelineno-8-73"> 73</a></span>
+<span class="normal"><a href="#__codelineno-8-74"> 74</a></span>
+<span class="normal"><a href="#__codelineno-8-75"> 75</a></span>
+<span class="normal"><a href="#__codelineno-8-76"> 76</a></span>
+<span class="normal"><a href="#__codelineno-8-77"> 77</a></span>
+<span class="normal"><a href="#__codelineno-8-78"> 78</a></span>
+<span class="normal"><a href="#__codelineno-8-79"> 79</a></span>
+<span class="normal"><a href="#__codelineno-8-80"> 80</a></span>
+<span class="normal"><a href="#__codelineno-8-81"> 81</a></span>
+<span class="normal"><a href="#__codelineno-8-82"> 82</a></span>
+<span class="normal"><a href="#__codelineno-8-83"> 83</a></span>
+<span class="normal"><a href="#__codelineno-8-84"> 84</a></span>
+<span class="normal"><a href="#__codelineno-8-85"> 85</a></span>
+<span class="normal"><a href="#__codelineno-8-86"> 86</a></span>
+<span class="normal"><a href="#__codelineno-8-87"> 87</a></span>
+<span class="normal"><a href="#__codelineno-8-88"> 88</a></span>
+<span class="normal"><a href="#__codelineno-8-89"> 89</a></span>
+<span class="normal"><a href="#__codelineno-8-90"> 90</a></span>
+<span class="normal"><a href="#__codelineno-8-91"> 91</a></span>
+<span class="normal"><a href="#__codelineno-8-92"> 92</a></span>
+<span class="normal"><a href="#__codelineno-8-93"> 93</a></span>
+<span class="normal"><a href="#__codelineno-8-94"> 94</a></span>
+<span class="normal"><a href="#__codelineno-8-95"> 95</a></span>
+<span class="normal"><a href="#__codelineno-8-96"> 96</a></span>
+<span class="normal"><a href="#__codelineno-8-97"> 97</a></span>
+<span class="normal"><a href="#__codelineno-8-98"> 98</a></span>
+<span class="normal"><a href="#__codelineno-8-99"> 99</a></span>
+<span class="normal"><a href="#__codelineno-8-100">100</a></span>
+<span class="normal"><a href="#__codelineno-8-101">101</a></span>
+<span class="normal"><a href="#__codelineno-8-102">102</a></span>
+<span class="normal"><a href="#__codelineno-8-103">103</a></span>
+<span class="normal"><a href="#__codelineno-8-104">104</a></span>
+<span class="normal"><a href="#__codelineno-8-105">105</a></span>
+<span class="normal"><a href="#__codelineno-8-106">106</a></span>
+<span class="normal"><a href="#__codelineno-8-107">107</a></span>
+<span class="normal"><a href="#__codelineno-8-108">108</a></span>
+<span class="normal"><a href="#__codelineno-8-109">109</a></span>
+<span class="normal"><a href="#__codelineno-8-110">110</a></span>
+<span class="normal"><a href="#__codelineno-8-111">111</a></span>
+<span class="normal"><a href="#__codelineno-8-112">112</a></span>
+<span class="normal"><a href="#__codelineno-8-113">113</a></span>
+<span class="normal"><a href="#__codelineno-8-114">114</a></span>
+<span class="normal"><a href="#__codelineno-8-115">115</a></span>
+<span class="normal"><a href="#__codelineno-8-116">116</a></span>
+<span class="normal"><a href="#__codelineno-8-117">117</a></span>
+<span class="normal"><a href="#__codelineno-8-118">118</a></span>
+<span class="normal"><a href="#__codelineno-8-119">119</a></span>
+<span class="normal"><a href="#__codelineno-8-120">120</a></span>
+<span class="normal"><a href="#__codelineno-8-121">121</a></span>
+<span class="normal"><a href="#__codelineno-8-122">122</a></span>
+<span class="normal"><a href="#__codelineno-8-123">123</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">istia.st.servlets.personne</span><span class="p">;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="p">...</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">&quot;serial&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ServletPersonne</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">HttpServlet</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="c1">// instance parameters</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">urlErreurs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ArrayList</span><span class="w"> </span><span class="n">erreursInitialisation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">paramètres</span><span class="o">=</span><span class="p">{</span><span class="s">&quot;urlFormulaire&quot;</span><span class="p">,</span><span class="s">&quot;urlReponse&quot;</span><span class="p">,</span><span class="s">&quot;lienRetourFormulaire&quot;</span><span class="p">};</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="w"> </span><span class="n">params</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a>
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="w">    </span><span class="c1">// init</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="w">    </span><span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">&quot;unchecked&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16"></a><span class="p">...</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18"></a>
+<a id="__codelineno-8-19" name="__codelineno-8-19"></a><span class="w">    </span><span class="c1">// GET</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20"></a><span class="w">    </span><span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">&quot;unchecked&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doGet</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22"></a><span class="w">            </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">,</span><span class="w"> </span><span class="n">ServletException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23"></a>
+<a id="__codelineno-8-24" name="__codelineno-8-24"></a><span class="p">...</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25"></a><span class="w">        </span><span class="c1">// retrieve the request sending method</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">méthode</span><span class="o">=</span><span class="n">request</span><span class="p">.</span><span class="na">getMethod</span><span class="p">().</span><span class="na">toLowerCase</span><span class="p">();</span>
+<a id="__codelineno-8-27" name="__codelineno-8-27"></a><span class="w">        </span><span class="c1">// retrieve the action to be executed</span>
+<a id="__codelineno-8-28" name="__codelineno-8-28"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">action</span><span class="o">=</span><span class="n">request</span><span class="p">.</span><span class="na">getPathInfo</span><span class="p">();</span>
+<a id="__codelineno-8-29" name="__codelineno-8-29"></a><span class="p">...</span>
+<a id="__codelineno-8-30" name="__codelineno-8-30"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">méthode</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;post&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">action</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;/validationFormulaire&quot;</span><span class="p">)){</span>
+<a id="__codelineno-8-31" name="__codelineno-8-31"></a><span class="w">            </span><span class="c1">// validation of input form</span>
+<a id="__codelineno-8-32" name="__codelineno-8-32"></a><span class="w">            </span><span class="n">doValidationFormulaire</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="n">response</span><span class="p">);</span>
+<a id="__codelineno-8-33" name="__codelineno-8-33"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-8-34" name="__codelineno-8-34"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-8-35" name="__codelineno-8-35"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">méthode</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;get&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">action</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;/retourFormulaire&quot;</span><span class="p">)){</span>
+<a id="__codelineno-8-36" name="__codelineno-8-36"></a><span class="w">            </span><span class="c1">// back to input form</span>
+<a id="__codelineno-8-37" name="__codelineno-8-37"></a><span class="w">            </span><span class="n">doRetourFormulaire</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="n">response</span><span class="p">);</span>
+<a id="__codelineno-8-38" name="__codelineno-8-38"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-8-39" name="__codelineno-8-39"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-8-40" name="__codelineno-8-40"></a><span class="w">        </span><span class="c1">// other cases</span>
+<a id="__codelineno-8-41" name="__codelineno-8-41"></a><span class="w">        </span><span class="n">doInit</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="n">response</span><span class="p">);</span>
+<a id="__codelineno-8-42" name="__codelineno-8-42"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-43" name="__codelineno-8-43"></a>
+<a id="__codelineno-8-44" name="__codelineno-8-44"></a><span class="w">    </span><span class="c1">// empty form display</span>
+<a id="__codelineno-8-45" name="__codelineno-8-45"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">doInit</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="p">{</span>
+<a id="__codelineno-8-46" name="__codelineno-8-46"></a><span class="p">...</span>
+<a id="__codelineno-8-47" name="__codelineno-8-47"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-48" name="__codelineno-8-48"></a>
+<a id="__codelineno-8-49" name="__codelineno-8-49"></a><span class="w">    </span><span class="c1">// display pre-filled form</span>
+<a id="__codelineno-8-50" name="__codelineno-8-50"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">doRetourFormulaire</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="p">{</span>
+<a id="__codelineno-8-51" name="__codelineno-8-51"></a><span class="w">        </span><span class="c1">// the form is displayed</span>
+<a id="__codelineno-8-52" name="__codelineno-8-52"></a><span class="w">        </span><span class="n">getServletContext</span><span class="p">().</span><span class="na">getRequestDispatcher</span><span class="p">((</span><span class="n">String</span><span class="p">)</span><span class="n">params</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;urlFormulaire&quot;</span><span class="p">)).</span><span class="na">forward</span><span class="p">(</span>
+<a id="__codelineno-8-53" name="__codelineno-8-53"></a><span class="w">                </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">);</span>
+<a id="__codelineno-8-54" name="__codelineno-8-54"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-8-55" name="__codelineno-8-55"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-56" name="__codelineno-8-56"></a>
+<a id="__codelineno-8-57" name="__codelineno-8-57"></a><span class="w">    </span><span class="c1">// empty form display</span>
+<a id="__codelineno-8-58" name="__codelineno-8-58"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">doEffacer</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="p">{</span>
+<a id="__codelineno-8-59" name="__codelineno-8-59"></a><span class="w">        </span><span class="c1">// prepare the form template</span>
+<a id="__codelineno-8-60" name="__codelineno-8-60"></a><span class="w">        </span><span class="n">HttpSession</span><span class="w"> </span><span class="n">session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getSession</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w">        </span>
+<a id="__codelineno-8-61" name="__codelineno-8-61"></a><span class="w">        </span><span class="n">session</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;nom&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">);</span>
+<a id="__codelineno-8-62" name="__codelineno-8-62"></a><span class="w">        </span><span class="n">session</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">);</span>
+<a id="__codelineno-8-63" name="__codelineno-8-63"></a><span class="w">        </span><span class="c1">// the form is displayed</span>
+<a id="__codelineno-8-64" name="__codelineno-8-64"></a><span class="w">        </span><span class="n">getServletContext</span><span class="p">().</span><span class="na">getRequestDispatcher</span><span class="p">((</span><span class="n">String</span><span class="p">)</span><span class="n">params</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;urlFormulaire&quot;</span><span class="p">)).</span><span class="na">forward</span><span class="p">(</span>
+<a id="__codelineno-8-65" name="__codelineno-8-65"></a><span class="w">                </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">);</span>
+<a id="__codelineno-8-66" name="__codelineno-8-66"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-8-67" name="__codelineno-8-67"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-68" name="__codelineno-8-68"></a>
+<a id="__codelineno-8-69" name="__codelineno-8-69"></a><span class="w">    </span><span class="c1">// form validation</span>
+<a id="__codelineno-8-70" name="__codelineno-8-70"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">doValidationFormulaire</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span>
+<a id="__codelineno-8-71" name="__codelineno-8-71"></a><span class="w">            </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="p">{</span>
+<a id="__codelineno-8-72" name="__codelineno-8-72"></a><span class="w">        </span><span class="c1">// we retrieve the button that caused the POST</span>
+<a id="__codelineno-8-73" name="__codelineno-8-73"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">bouton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;bouton&quot;</span><span class="p">).</span><span class="na">toLowerCase</span><span class="p">();</span>
+<a id="__codelineno-8-74" name="__codelineno-8-74"></a><span class="w">        </span><span class="c1">// treatment according to the button that caused the POST</span>
+<a id="__codelineno-8-75" name="__codelineno-8-75"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">bouton</span><span class="o">==</span><span class="kc">null</span><span class="p">){</span>
+<a id="__codelineno-8-76" name="__codelineno-8-76"></a><span class="w">            </span><span class="n">doInit</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="n">response</span><span class="p">);</span>
+<a id="__codelineno-8-77" name="__codelineno-8-77"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-8-78" name="__codelineno-8-78"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-8-79" name="__codelineno-8-79"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="s">&quot;envoyer&quot;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">bouton</span><span class="p">)){</span>
+<a id="__codelineno-8-80" name="__codelineno-8-80"></a><span class="w">            </span><span class="n">doEnvoyer</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="n">response</span><span class="p">);</span>
+<a id="__codelineno-8-81" name="__codelineno-8-81"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-8-82" name="__codelineno-8-82"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-8-83" name="__codelineno-8-83"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="s">&quot;effacer&quot;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">bouton</span><span class="p">)){</span>
+<a id="__codelineno-8-84" name="__codelineno-8-84"></a><span class="w">            </span><span class="n">doEffacer</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="n">response</span><span class="p">);</span>
+<a id="__codelineno-8-85" name="__codelineno-8-85"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-8-86" name="__codelineno-8-86"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-8-87" name="__codelineno-8-87"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-88" name="__codelineno-8-88"></a>
+<a id="__codelineno-8-89" name="__codelineno-8-89"></a><span class="w">    </span><span class="c1">// form validation</span>
+<a id="__codelineno-8-90" name="__codelineno-8-90"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">doEnvoyer</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span>
+<a id="__codelineno-8-91" name="__codelineno-8-91"></a><span class="w">            </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="p">{</span>
+<a id="__codelineno-8-92" name="__codelineno-8-92"></a><span class="w">        </span><span class="c1">// parameters are retrieved</span>
+<a id="__codelineno-8-93" name="__codelineno-8-93"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;txtNom&quot;</span><span class="p">);</span>
+<a id="__codelineno-8-94" name="__codelineno-8-94"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;txtAge&quot;</span><span class="p">);</span>
+<a id="__codelineno-8-95" name="__codelineno-8-95"></a><span class="w">        </span><span class="c1">// stored in the session</span>
+<a id="__codelineno-8-96" name="__codelineno-8-96"></a><span class="w">        </span><span class="n">HttpSession</span><span class="w"> </span><span class="n">session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getSession</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w">        </span>
+<a id="__codelineno-8-97" name="__codelineno-8-97"></a><span class="w">        </span><span class="n">session</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;nom&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">nom</span><span class="p">);</span>
+<a id="__codelineno-8-98" name="__codelineno-8-98"></a><span class="w">        </span><span class="n">session</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">);</span>
+<a id="__codelineno-8-99" name="__codelineno-8-99"></a><span class="w">        </span><span class="c1">// the link back to the form is set in the view template [response, errors]</span>
+<a id="__codelineno-8-100" name="__codelineno-8-100"></a><span class="w">        </span><span class="n">request</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;lienRetourFormulaire&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="n">params</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;lienRetourFormulaire&quot;</span><span class="p">));</span><span class="w">    </span>
+<a id="__codelineno-8-101" name="__codelineno-8-101"></a><span class="w">        </span><span class="c1">// parameter verification</span>
+<a id="__codelineno-8-102" name="__codelineno-8-102"></a><span class="w">        </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">erreursAppel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-8-103" name="__codelineno-8-103"></a><span class="w">    </span><span class="p">...</span>
+<a id="__codelineno-8-104" name="__codelineno-8-104"></a><span class="w">        </span><span class="c1">// errors in the parameters?</span>
+<a id="__codelineno-8-105" name="__codelineno-8-105"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">erreursAppel</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-106" name="__codelineno-8-106"></a><span class="w">            </span><span class="c1">// send error page</span>
+<a id="__codelineno-8-107" name="__codelineno-8-107"></a><span class="w">            </span><span class="n">request</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;erreurs&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">erreursAppel</span><span class="p">);</span>
+<a id="__codelineno-8-108" name="__codelineno-8-108"></a><span class="w">            </span><span class="n">getServletContext</span><span class="p">().</span><span class="na">getRequestDispatcher</span><span class="p">(</span><span class="n">urlErreurs</span><span class="p">).</span><span class="na">forward</span><span class="p">(</span>
+<a id="__codelineno-8-109" name="__codelineno-8-109"></a><span class="w">                    </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">);</span>
+<a id="__codelineno-8-110" name="__codelineno-8-110"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-8-111" name="__codelineno-8-111"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-8-112" name="__codelineno-8-112"></a><span class="w">        </span><span class="c1">// parameters are correct - send response page</span>
+<a id="__codelineno-8-113" name="__codelineno-8-113"></a><span class="w">        </span><span class="n">getServletContext</span><span class="p">().</span><span class="na">getRequestDispatcher</span><span class="p">((</span><span class="n">String</span><span class="p">)</span><span class="n">params</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;urlReponse&quot;</span><span class="p">)).</span><span class="na">forward</span><span class="p">(</span><span class="n">request</span><span class="p">,</span>
+<a id="__codelineno-8-114" name="__codelineno-8-114"></a><span class="w">                </span><span class="n">response</span><span class="p">);</span>
+<a id="__codelineno-8-115" name="__codelineno-8-115"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-8-116" name="__codelineno-8-116"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-117" name="__codelineno-8-117"></a>
+<a id="__codelineno-8-118" name="__codelineno-8-118"></a><span class="w">    </span><span class="c1">// post</span>
+<a id="__codelineno-8-119" name="__codelineno-8-119"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doPost</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span>
+<a id="__codelineno-8-120" name="__codelineno-8-120"></a><span class="w">            </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">,</span><span class="w"> </span><span class="n">ServletException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-121" name="__codelineno-8-121"></a><span class="p">...</span>
+<a id="__codelineno-8-122" name="__codelineno-8-122"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-123" name="__codelineno-8-123"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>第 35 行：[/retourFormulaire] 操作通过 GET 请求执行，而非像上一版本那样使用 POST 请求。
+  </li>
+  <li>第 70–87 行：[/validationFormulaire] 操作由点击 [form] 视图中的 [Envoyer] 或 [Effacer] 按钮触发的 POST 请求引发。doValidationFormulaire 方法通过两种不同的方法处理这两种情况。
+  </li>
+  <li>第 90–103 行：[doEnvoyer] 方法对应于上一版本中的 [doValidationFormulaire] 方法。输入的数据存储在会话中（第 96–98 行），而在上一版本中，数据被放置在请求中。
+  </li>
+  <li>第 58–67 行：新的 [doEffacer] 方法必须显示一个空表单。我们可以调用 [doInit] 方法，该方法已执行此任务。在此，我们借此机会同时清除会话中的 [name, age] 元素，以便会话继续反映表单的最新状态。
+  </li>
+  <li>第 50–55 行：请求显示 [form] 视图，且未对视图的模型进行任何明显的初始化。该模型实际上由会话中已有的 [name, age] 元素组成。无需采取进一步操作。
+  </li>
+</ul>
+
+<h2 id="126">12.6. <span style="color: #4f81bd">测试</span></h2>
+<p>将 Eclipse 项目 [personne-mvc-07] 集成到 Tomcat 后，启动或重启 Tomcat，然后使用已禁用 Cookie 且已删除现有 Cookie 的浏览器请求 URL [http://localhost:8080/personne7]。将获得以下响应：</p>
+<p><img src="images/10000000000001F1000000F0D47059AE.png" width="348" height="168" style="width:9.2cm;height:4.443cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001F1000000F0D47059AE.png" /></p>
+<p>浏览器收到的源代码如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="p">&lt;</span><span class="nt">form</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;frmPersonne&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;validationFormulaire;jsessionid=9D4CC83FEFB51AE78B1FD71EC66F9EF3&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>...
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>第 1 行：会话令牌位于 POST 目标 URL 中。</p>
+<p>让我们填写表单并提交：</p>
+<p><img src="images/10000000000002F2000000E1E74EB734.png" width="528" height="157" style="width:13.959cm;height:4.165cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002F2000000E1E74EB734.png" /></p>
+<p>浏览器收到的源代码如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>...
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;retourFormulaire;jsessionid=9D4CC83FEFB51AE78B1FD71EC66F9EF3&quot;</span><span class="p">&gt;</span>Retour au formulaire<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>第 3 行：会话令牌位于链接的目标 URL 中。</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        本教程由 <strong>Serge Tahé</strong> 编写，根据
+<em>知识共享 署名-非商业性使用-
+相同方式共享 3.0 未本地化</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1090 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Java MVC Web开发入门：实用指南">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/zh-java-web-mvc-mai-2006/mvcoing-hiu-onghiiaia.html">
+      
+      
+        <link rel="prev" href="java-web-aiaihu.html">
+      
+      
+        <link rel="next" href="mvc-web-ingonghengu-person---anen-1.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>4. MVC（模型–视图–控制器）开发 - Java MVC Web开发入门：实用指南</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Java MVC Web开发入门：实用指南";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4-mvc" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Java MVC Web开发入门：实用指南" class="md-header__button md-logo" aria-label="Java MVC Web开发入门：实用指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Java MVC Web开发入门：实用指南
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4. MVC（模型–视图–控制器）开发
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/zh-java-web-mvc-mai-2006" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Java MVC Web开发入门：实用指南" class="md-nav__button md-logo" aria-label="Java MVC Web开发入门：实用指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Java MVC Web开发入门：实用指南
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/zh-java-web-mvc-mai-2006" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欢迎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ianie.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="enenhonghiongeongu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 本文中使用的工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-web-aiaihu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Java Web 开发基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="mvcoing-hiu-onghiiaia.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. MVC（模型–视图–控制器）开发
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvc-web-ingonghengu-person---anen-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. MVC Web 应用程序 [person] – 版本 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvc-web-ingonghengu-person---anen-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. MVC Web 应用程序 [person] – 版本 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvc-web-ingonghengu-person---anen-3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. MVC Web 应用程序 [person] – 版本 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="jstl-iaoianu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. JSTL 标签库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvc-web-ingonghengu-person---i-4-an.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. MVC Web 应用程序 [person] – 第 4 版
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvc-web-ingonghengu-person---anen-5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. MVC Web 应用程序 [person] – 版本 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvc-web-ingonghengu-person---anen-6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. MVC Web 应用程序 [person] – 版本 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvc-web-ingonghengu-person---anen-7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. MVC Web 应用程序 [person] – 版本 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mvc-web-ingonghengu-person---i-8-an.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. MVC Web 应用程序 [person] – 第 8 版
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anengiaouhonge-mvc-web-ingonghengu---hii-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 三层架构中的 MVC Web 应用程序 – 示例 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="spring-ioc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Spring IoC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anengiaouhonge-mvc-web-ingonghengu----hii-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. 三层架构中的 MVC Web 应用程序——示例 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anengiaouhonge-mvc-web-ingonghengu---hii-3---firebird-huuuuaniiong.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. 三层架构中的 MVC Web 应用程序 – 示例 3 – Firebird 数据库管理系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anengiaouhonge-mvc-web-ingonghengu----hii-4postgres.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. 三层架构中的 MVC Web 应用程序——示例 4，Postgres
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anengiaouhonge-mvc-web-ingonghengu---hii-5mysql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. 三层架构中的 MVC Web 应用程序 – 示例 5，MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anengiaouhonge-mvc-web-ingonghengu---hii-6sql-server-express.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. 三层架构中的 MVC Web 应用程序 – 示例 6，SQL Server Express
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ieun.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. 结论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="enenhongeaia.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. 本文中的代码
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><a id="mvc-3tier"></a></p>
+<h1 id="4-mvc">4. <span style="color: #365f91">MVC（模型–视图–控制器）开发</span></h1>
+<p>Web 应用程序通常采用三层架构：</p>
+<p><img src="images/1000000000000440000000AA79C81013.png" width="544" height="85" style="width:14.393cm;height:2.249cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000440000000AA79C81013.png" /></p>
+<ul>
+  <li>[<b>DAO</b>] 层负责数据访问，通常处理数据库管理系统（DBMS）中的持久化数据。但这也可能是来自传感器、网络等来源的数据。
+  </li>
+  <li>[<b>业务</b>]层实现应用程序的“业务”算法。该层与任何形式的用户界面均相互独立。因此，它必须能够适配控制台界面、Web界面或富客户端界面。因此，它必须能够在Web界面之外进行测试，特别是通过控制台界面进行测试。这通常是架构中最稳定的层。 即使用户界面或应用程序运行所需数据的访问方式发生改变，该层也不会随之改变。 
+  </li>
+  <li>[<b>用户界面</b>]层，即允许用户控制应用程序并从中获取信息的界面（通常为图形界面）。
+  </li>
+</ul>
+
+<p>通信流向从左至右：</p>
+<ul>
+  <li>用户向[<b>用户界面</b>]层发出请求
+  </li>
+  <li>该请求由[<b>用户界面</b>]层进行格式化处理，并传输至[<b>业务逻辑</b>]层
+  </li>
+  <li>如果[<b>业务逻辑</b>]层需要数据来处理此请求，它会向[<b>DAO</b>]层请求数据
+  </li>
+  <li>每个被查询的层将响应返回给其左侧的层，直至最终响应到达用户。
+  </li>
+</ul>
+
+<p>通常通过 Java 接口访问 [业务] 和 [DAO] 层。因此，[业务] 层仅了解 [DAO] 层的接口，而不知道实现这些接口的具体类。 这正是确保各层之间相互独立的关键：只要 [DAO] 层的接口定义保持不变，更改 [DAO] 层的实现就不会对 [业务] 层产生影响。[用户界面] 层与 [业务] 层之间也是如此。</p>
+<p>当[<strong>用户界面</strong>]层为Web界面时，MVC（模型-视图-控制器）架构即在该层中实现：</p>
+<p><img src="images/100000000000044A000001096FF0D59E.png" width="549" height="133" style="width:14.526cm;height:3.507cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000044A000001096FF0D59E.png" /></p>
+<p>处理客户端请求的步骤如下：</p>
+<ol>
+  <li>客户端向控制器发送请求。控制器负责处理所有客户端请求。它是应用程序的入口点，即 MVC 架构中的<b> C</b>。
+  </li>
+  <li>C控制器处理此请求。为此，它可能需要业务层的协助。一旦客户端请求被处理完毕，它便会触发各种响应。一个典型的例子是：
+    <ul>
+      <li>若请求无法正确处理，则显示错误页面
+      </li>
+      <li>否则返回确认页面
+      </li>
+    </ul>
+  </li>
+  <li>控制器负责选择要发送给客户端的响应（即视图）。选择响应涉及以下几个步骤：
+    <ul>
+      <li>选择将生成响应的对象。这被称为视图<b>（V</b>），即 MVC 中的<b> V</b>。该选择通常取决于执行用户请求的操作所产生的结果。
+      </li>
+      <li>向其提供生成此响应所需的数据。事实上，该响应通常包含由控制器计算得出的信息。这些信息构成了所谓的视图的 <b>M</b> 模型，即 MVC 中的<b> M</b>。
+      </li>
+      <li>因此，步骤 3 包括选择一个视图 (<b>V)</b> 并构建其所需的模型 (<b>M)</b>。
+      </li>
+    </ul>
+  </li>
+  <li>控制器 <b>C</b> 会指示所选视图进行渲染。这通常涉及调用视图 <b>V </b>中负责生成客户端响应的特定方法。在本文中，我们将生成客户端响应的对象及其响应本身统称为视图。MVC 文献对此点并未明确说明。如果将响应本身称为视图，那么我们可以将生成该响应的对象称为视图生成器。
+  </li>
+  <li>视图生成器 <b>V </b>使用控制器 <b>C</b> 准备的模型 <b>M</b> 来初始化其必须发送给客户端的响应中的动态部分。
+  </li>
+  <li>响应被发送给客户端。其具体形式取决于视图生成器，可以是 HTML 流、PDF、Excel 等格式。
+  </li>
+</ol>
+
+<p>MVC Web 开发方法论并不一定需要外部工具。因此，仅使用简单的 JDK 和基础 Web 开发库，即可开发出采用 MVC 架构的 Java Web 应用程序。适用于简单应用程序的方法如下：</p>
+<ul>
+  <li>控制器由单个 Servlet 处理。这就是 MVC 中的<b> C</b>。
+  </li>
+  <li>所有客户端请求都包含一个<b>“action</b>”属性，例如 (<b>http://.../appli?action=liste</b>)。
+  </li>
+  <li>根据 <b>action</b> 属性的值，Servlet 会调用类型为 [<b>doAction</b>(...)] 的内部方法。
+  </li>
+  <li>[<b>doAction</b>]方法执行用户请求的操作。为此，它会在必要时调用[业务]层。
+  </li>
+  <li>根据执行结果，[<b>doAction</b>]方法决定显示哪个JSP页面。这就是MVC模型中的视图（<b>V）</b>。
+  </li>
+  <li>JSP 页面包含必须由 Servlet 提供的动态元素。[<b>doAction</b>] 方法将提供这些元素。这就是视图模型，即 MVC 中的<b> M</b>。该模型通常放置在请求上下文中（request.setAttribute(&quot;key&quot;, &quot;value&quot;），较少见的是放置在会话或应用程序上下文中。JSP 页面可以访问这三个上下文。
+  </li>
+  <li>[<b>doAction</b>] 方法通过将执行流程传递给选定的 JSP 页面来渲染视图。为此，它会使用类似 [getServletContext()    .getRequestDispatcher(&quot;JSP 页面&quot;).forward(request, response)] 之类的语句。
+  </li>
+</ul>
+
+<p>这种 MVC 设计模式被称为“前端控制器”模式或单控制器模式。一个 Servlet 负责处理来自所有用户的请求。</p>
+<p>让我们回到前一个 Web 应用程序的架构：</p>
+<p><img src="images/100000000000039C00000162A72C5060.png" width="462" height="177" style="width:12.224cm;height:4.683cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000039C00000162A72C5060.png" /></p>
+<p>该架构对应于以下多层架构：</p>
+<p><img src="images/10000000000001DE000000B47F9D7A03.png" width="239" height="90" style="width:6.324cm;height:2.381cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001DE000000B47F9D7A03.png" /></p>
+<p>实际上只有一层：Web 接口层。一般而言，基于 Servlet 和 JSP 页面的 MVC Web 应用程序将具有以下架构：</p>
+<p><img src="images/10000000000004740000015E370B9BE9.png" width="570" height="175" style="width:15.081cm;height:4.63cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004740000015E370B9BE9.png" /></p>
+<p>对于简单的应用程序，这种架构已经足够。当你编写过几个此类应用程序后，你会发现两个不同应用程序的Servlet：</p>
+<ol>
+  <li>使用相同的机制来确定应执行哪个 [doAction] 方法来处理用户请求的操作
+  </li>
+  <li>实际上仅在这些 [doAction] 方法的内容上有所不同
+  </li>
+</ol>
+
+<p>此时，人们往往会产生强烈的冲动：</p>
+<ul>
+  <li>将处理逻辑 (1) 提取到一个通用的 Servlet 中，该 Servlet 并不了解使用它的具体应用程序
+  </li>
+  <li>将处理（2）委托给外部类，因为通用 Servlet 并不知道它正在哪个应用程序中被使用
+  </li>
+  <li>通过配置文件将用户请求的操作与必须处理该操作的类关联起来
+  </li>
+</ul>
+
+<p>为此，一些通常被称为“框架”的工具应运而生，旨在为开发人员提供这些功能。其中历史最悠久且可能最广为人知的是 <strong>Struts</strong>（http://struts.apache.org/）。<strong>Jakarta Struts</strong> 是 <strong>Apache 软件基金会</strong>（www.apache.org）的一个项目。该框架的详细介绍见（http://tahe.developpez.com/java/struts/）。</p>
+<p>较晚出现的 <strong>Spring</strong> 框架（http://www.springframework.org/）提供了与 Struts 类似的功能。多篇文章（http://tahe.developpez.com/java/springmvc-part1/）已对其使用方法进行了说明。</p>
+<p>下面我们将展示一个基于Servlet和JSP页面的MVC架构示例。</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        本教程由 <strong>Serge Tahé</strong> 编写，根据
+<em>知识共享 署名-非商业性使用-
+相同方式共享 3.0 未本地化</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
